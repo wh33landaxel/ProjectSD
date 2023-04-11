@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck1hm3wm8uvf1"]
+
+[ext_resource type="Script" path="res://Scenes/cloud.gd" id="1_ii17e"]
+[ext_resource type="Texture2D" uid="uid://82fdf7bx3umt" path="res://Art/cumulus-small2.png" id="2_4gwf0"]
+
+[node name="Cloud" type="Node2D" groups=["cloud"]]
+script = ExtResource("1_ii17e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("2_4gwf0")
+
+[node name="RainTimer" type="Timer" parent="."]
+wait_time = 1.77
+autostart = true
+
+[connection signal="timeout" from="RainTimer" to="." method="_on_rain_timer_timeout"]

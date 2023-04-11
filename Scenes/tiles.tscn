@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dummr62h63q2m"]
+
+[ext_resource type="Texture2D" uid="uid://d18yupoexk8jl" path="res://Art/sheet.png" id="1_3diwf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjf2c"]
+size = Vector2(16, 32)
+
+[node name="Tiles" type="Node2D"]
+
+[node name="BrownRock" type="Sprite2D" parent="."]
+texture = ExtResource("1_3diwf")
+region_enabled = true
+region_rect = Rect2(208.024, -0.170571, 16.1873, 32.5381)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BrownRock"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrownRock/StaticBody2D"]
+shape = SubResource("RectangleShape2D_hjf2c")
+
+[node name="BlueRock" type="Sprite2D" parent="."]
+position = Vector2(25, 0)
+texture = ExtResource("1_3diwf")
+region_enabled = true
+region_rect = Rect2(209.089, 31.7852, 14.8792, 33.0286)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BlueRock"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueRock/StaticBody2D"]
+shape = SubResource("RectangleShape2D_hjf2c")
