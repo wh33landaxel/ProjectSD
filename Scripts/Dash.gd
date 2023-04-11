@@ -1,5 +1,7 @@
 extends Node2D
 
+signal dash_ended
+
 const DASH_DELAY = 0.4
 
 @onready var duration_timer = $DurationTimer
@@ -41,6 +43,7 @@ func end_dash():
 
 func _on_duration_timer_timeout():
 	end_dash()
+	emit_signal("dash_ended")
 
 func _on_ghost_timer_timeout():
 	instantiate_ghost()

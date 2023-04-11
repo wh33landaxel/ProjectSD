@@ -70,7 +70,9 @@ func get_move_direction():
 		int(Input.is_action_pressed('ui_right')) - int(Input.is_action_pressed('ui_left')),
 		int(Input.is_action_pressed('ui_down')) - int(Input.is_action_pressed('ui_up'))
 	)
-	
+
+func dash_ended():
+	velocity.y = 0
 
 func flip():
 	is_facing_right = !is_facing_right
@@ -103,3 +105,5 @@ func _on_weapon_collision_body_entered(body):
 		var impulse = Vector2(direction.x * PUSHBACK_FORCE, 0)
 		body.move_and_collide(impulse)
 
+func _on_dash_ended():
+	velocity.y = 0

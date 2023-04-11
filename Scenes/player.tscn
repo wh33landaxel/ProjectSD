@@ -1,6 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://dqs2bb60fturs"]
+[gd_scene load_steps=27 format=3 uid="uid://cq6y8xomtxw74"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_j85hl"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_hkqh2"]
 [ext_resource type="Texture2D" uid="uid://brgcnplvtpqrk" path="res://Art/characters.png" id="2_0rfdr"]
 [ext_resource type="Texture2D" uid="uid://dicvqqhg6y20h" path="res://Art/explosion.png" id="2_eymae"]
 [ext_resource type="AudioStream" uid="uid://jj2fujd7gxsf" path="res://Sounds/explodemini.wav" id="4_ful8b"]
@@ -253,7 +253,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-script = ExtResource("1_j85hl")
+script = ExtResource("1_hkqh2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -292,3 +292,4 @@ libraries = {
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="SlashSprite/WeaponCollision" to="." method="_on_weapon_collision_body_entered"]
+[connection signal="dash_ended" from="Dash" to="." method="_on_dash_ended"]
