@@ -12,7 +12,7 @@ func game_over():
 	get_tree().call_group("cloud", "queue_free")
 	get_tree().call_group("rain_drop","queue_free")
 	$GameOverHUD.show()
-	##
+	
 	
 func new_game():
 	$ScoreTimer.start()

@@ -38,18 +38,21 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		$AnimatedSprite2D.play("jump")
 		
-	if Input.is_action_just_pressed("attack") and is_on_floor():
+	if Input.is_action_just_pressed("attack"):
 		$AnimatedSprite2D.play("char_slash")
 		animation_player.play("slash")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * speed
+	
+	var move_direction = get_move_direction()
+	if move_direction:
+		velocity.x = move_direction.x * speed
+		if dash.is_dashing():
+			velocity.y = move_direction.y * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-		
+	
 	move_and_slide()
 	
 	if is_on_floor() and velocity.x != 0:
@@ -60,6 +63,14 @@ func _physics_process(delta):
 			flip()
 		elif velocity.x < 0 and is_facing_right:
 			flip()
+
+#Gets moving direction for all axes
+func get_move_direction():
+	return Vector2(
+		int(Input.is_action_pressed('ui_right')) - int(Input.is_action_pressed('ui_left')),
+		int(Input.is_action_pressed('ui_down')) - int(Input.is_action_pressed('ui_up'))
+	)
+	
 
 func flip():
 	is_facing_right = !is_facing_right
