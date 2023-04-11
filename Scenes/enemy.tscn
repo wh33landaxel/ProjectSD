@@ -1,11 +1,8 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://ckpfltemsrgtq"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_j5qxs"]
 [ext_resource type="Texture2D" uid="uid://brgcnplvtpqrk" path="res://Art/characters.png" id="1_u0l5f"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5odl5"]
-atlas = ExtResource("1_u0l5f")
-region = Rect2(64, 68, 32, 32)
+[ext_resource type="Texture2D" uid="uid://bkm7jqdjoguo7" path="res://Art/Dash.png" id="2_exmgi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mnv8l"]
 atlas = ExtResource("1_u0l5f")
@@ -27,7 +24,7 @@ region = Rect2(96, 68, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5odl5")
+"texture": ExtResource("2_exmgi")
 }],
 "loop": true,
 "name": &"idle",
@@ -65,6 +62,7 @@ position = Vector2(1539, 406)
 script = ExtResource("1_j5qxs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
 sprite_frames = SubResource("SpriteFrames_ho2ha")
 animation = &"idle"
 

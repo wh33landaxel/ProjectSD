@@ -18,6 +18,9 @@ var speed = 300.0
 @onready var dash = $Dash
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready():
+	Global.player = self
+
 func _physics_process(delta):
 	
 	if dead:

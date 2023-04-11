@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5bdnactx4pxs"]
+
+[ext_resource type="Script" path="res://Scenes/eye_bot.gd" id="1_bl27v"]
+[ext_resource type="Texture2D" uid="uid://cclmbgevlqg18" path="res://Art/sprite_5.png" id="1_p7ko6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euenl"]
+size = Vector2(14, 14)
+
+[node name="EyeBot" type="CharacterBody2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_bl27v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p7ko6")
+region_enabled = true
+region_rect = Rect2(3.95311, 0, 25.5399, 17.376)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_euenl")
