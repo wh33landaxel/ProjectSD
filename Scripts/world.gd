@@ -66,7 +66,6 @@ func _on_player_player_ded():
 func _on_button_pressed():
 	new_game()
 
-
-
-func _on_camera_camera_alert():
+func _on_camera_alert():
 	$HUD/ScoreLabel.text = "PLAYER DETECTED!"
+

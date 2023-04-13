@@ -452,3 +452,4 @@ flip_h = true
 [connection signal="pressed" from="GameOverHUD/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="CloudTimer" to="." method="_on_cloud_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="camera_alert" from="Camera_1" to="." method="_on_camera_alert"]
