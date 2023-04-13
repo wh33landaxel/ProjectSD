@@ -32,7 +32,7 @@ func _on_cloud_timer_timeout():
 	else: 
 		moving_right = false
 	
-	instantiate_enemy()
+	#instantiate_enemy()
 	#instantiate_cloud(moving_right)
 
 func instantiate_cloud(moving_right):
@@ -70,4 +70,3 @@ func _on_button_pressed():
 
 func _on_camera_camera_alert():
 	$HUD/ScoreLabel.text = "PLAYER DETECTED!"
-	pass # Replace with function body.
