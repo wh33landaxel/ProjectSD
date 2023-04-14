@@ -1,6 +1,8 @@
 extends Node
 
 var player
+enum ALERT_MODES { ALERT_OFF, ALERT_ON }
+var alert: ALERT_MODES = ALERT_MODES.ALERT_OFF
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
