@@ -11,10 +11,22 @@ signal camera_alert
 func _ready():
 	animation_player.play("surveillance")
 	self.scale.x = -1 if flip_h else 1
+	Global.alert_changed.connect(alert_changed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()  
 		if collider.is_in_group("player"):
-			emit_signal("camera_alert")
+			Global.alert_mode = Global.ALERT_MODES.ALERT_ON
+
+func alert_changed(alert_mode: Global.ALERT_MODES):
+	if alert_mode == Global.ALERT_MODES.ALERT_ON:
+		_camera_enabled(false)
+	else:
+		_camera_enabled(true)
+		
+func _camera_enabled(enabled: bool):
+	line.visible = enabled
+	raycast.collide_with_bodies = enabled
+	
