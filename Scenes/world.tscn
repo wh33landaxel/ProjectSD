@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bie4eo01i7boq"]
+[gd_scene load_steps=15 format=3 uid="uid://bie4eo01i7boq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ky31f"]
 [ext_resource type="PackedScene" uid="uid://cq6y8xomtxw74" path="res://Scenes/player.tscn" id="2_ayfde"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bjib6uahpeq37" path="res://Scenes/camera.tscn" id="10_6w61b"]
 [ext_resource type="PackedScene" uid="uid://ckpfltemsrgtq" path="res://Scenes/enemy.tscn" id="10_sugn5"]
 [ext_resource type="AudioStream" uid="uid://75kx0cjbk2s4" path="res://Sounds/fun_day_out.mp3" id="11_wsoln"]
+[ext_resource type="AudioStream" uid="uid://bxu5jk4v3yliq" path="res://Sounds/Blackmoor Tides Loop.wav" id="12_os8fd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l3v"]
 texture = ExtResource("3_cpitv")
@@ -450,9 +451,12 @@ scale = Vector2(3, 3)
 position = Vector2(472, 71)
 flip_h = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="NiceMusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_wsoln")
 autoplay = true
+
+[node name="AlertMusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_os8fd")
 
 [connection signal="pressed" from="GameOverHUD/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="CloudTimer" to="." method="_on_cloud_timer_timeout"]

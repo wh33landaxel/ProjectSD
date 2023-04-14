@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wm81d52tji4j"
+path="res://.godot/imported/sword sound.wav-5fe5182b3d856a3a64a73a60c3d9823d.sample"
+
+[deps]
+
+source_file="res://Sounds/sword sound.wav"
+dest_files=["res://.godot/imported/sword sound.wav-5fe5182b3d856a3a64a73a60c3d9823d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -46,6 +46,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack"):
 		$AnimatedSprite2D.play("char_slash")
 		animation_player.play("slash")
+		$SlashPlayer.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

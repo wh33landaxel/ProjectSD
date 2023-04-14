@@ -8,6 +8,7 @@ func _ready():
 	score = 0
 	#instantiate_cloud(randi() % 2 == 0)
 	$GameOverHUD.hide()
+	Global.alert_changed.connect(on_alert_change)
 
 func game_over(): 
 	get_tree().call_group("cloud", "queue_free")
@@ -69,3 +70,10 @@ func _on_button_pressed():
 func _on_camera_alert():
 	$HUD/ScoreLabel.text = "PLAYER DETECTED!"
 
+func on_alert_change(alert_change):
+	if alert_change == Global.ALERT_MODES.ALERT_ON:
+		$NiceMusicPlayer.stop()
+		$AlertMusicPlayer.play()
+	else:
+		$NiceMusicPlayer.play()
+		$AlertMusicPlayer.stop()
