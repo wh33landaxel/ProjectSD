@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca2pjexciew5b"]
+[gd_scene load_steps=10 format=3 uid="uid://ca2pjexciew5b"]
 
 [ext_resource type="Texture2D" uid="uid://bjqhxdo0wbsm7" path="res://Art/exclamation_spritesheet_01.png" id="1_mba7i"]
 [ext_resource type="Script" path="res://Scenes/alert.gd" id="1_q41nd"]
 [ext_resource type="Texture2D" uid="uid://dicvqqhg6y20h" path="res://Art/explosion.png" id="2_crx7l"]
+[ext_resource type="AudioStream" uid="uid://jj2fujd7gxsf" path="res://Sounds/explodemini.wav" id="4_fpcqy"]
 
 [sub_resource type="Animation" id="Animation_n82iu"]
 length = 0.001
@@ -165,7 +166,9 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_o0xx5")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fpcqy")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

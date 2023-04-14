@@ -21,6 +21,7 @@ func _process(delta):
 		if collider.is_in_group("player") and Global.alert_mode != Global.ALERT_MODES.ALERT_ON:
 			Global.alert_mode = Global.ALERT_MODES.ALERT_ON
 
+
 func alert_changed(alert_mode: Global.ALERT_MODES):
 	if alert_mode == Global.ALERT_MODES.ALERT_ON:
 		_camera_enabled(false)
@@ -36,5 +37,4 @@ func spawn_alert():
 	var a = alert.instantiate()
 	a.position = position
 	add_child(a)
-	print("spawning alert")
 	
