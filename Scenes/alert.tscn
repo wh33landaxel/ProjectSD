@@ -1,47 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca2pjexciew5b"]
+[gd_scene load_steps=9 format=3 uid="uid://ca2pjexciew5b"]
 
 [ext_resource type="Texture2D" uid="uid://bjqhxdo0wbsm7" path="res://Art/exclamation_spritesheet_01.png" id="1_mba7i"]
+[ext_resource type="Script" path="res://Scenes/alert.gd" id="1_q41nd"]
 [ext_resource type="Texture2D" uid="uid://dicvqqhg6y20h" path="res://Art/explosion.png" id="2_crx7l"]
-
-[sub_resource type="Animation" id="Animation_5sic0"]
-resource_name = "alert_appeared"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:skew")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [-1.21107e-17, -0.226893, 0.226893, -1.21107e-17]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AlertSprite:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AlertSprite:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_n82iu"]
 length = 0.001
@@ -88,6 +49,46 @@ tracks/3/path = NodePath("ExplosionSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5sic0"]
+resource_name = "alert_appeared"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-1.21107e-17, -0.226893, 0.226893, -1.21107e-17]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AlertSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AlertSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -144,6 +145,8 @@ _data = {
 size = Vector2(20, 32)
 
 [node name="Alert" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_q41nd")
 
 [node name="AlertSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
@@ -151,6 +154,7 @@ texture = ExtResource("1_mba7i")
 hframes = 7
 
 [node name="ExplosionSprite" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_crx7l")
 hframes = 5
 frame = 1
@@ -163,3 +167,5 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_o0xx5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

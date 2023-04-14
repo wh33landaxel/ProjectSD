@@ -5,6 +5,7 @@ extends Node2D
 @onready var sprite = $Sprite2D
 @onready var line = $Sprite2D/Line2D
 @export var flip_h = false
+var alert = preload("res://Scenes/alert.tscn")
 
 signal camera_alert
 # Called when the node enters the scene tree for the first time.
@@ -17,16 +18,23 @@ func _ready():
 func _process(delta):
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()  
-		if collider.is_in_group("player"):
+		if collider.is_in_group("player") and Global.alert_mode != Global.ALERT_MODES.ALERT_ON:
 			Global.alert_mode = Global.ALERT_MODES.ALERT_ON
 
 func alert_changed(alert_mode: Global.ALERT_MODES):
 	if alert_mode == Global.ALERT_MODES.ALERT_ON:
 		_camera_enabled(false)
+		spawn_alert()
 	else:
 		_camera_enabled(true)
 		
 func _camera_enabled(enabled: bool):
 	line.visible = enabled
 	raycast.collide_with_bodies = enabled
+
+func spawn_alert(): 
+	var a = alert.instantiate()
+	a.position = position
+	add_child(a)
+	print("spawning alert")
 	

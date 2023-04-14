@@ -13,7 +13,6 @@ var cur_time = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
 	if alert_mode == ALERT_MODES.ALERT_ON:
 		cur_time += delta
 		if cur_time >= alert_time:
