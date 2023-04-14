@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cq6y8xomtxw74"]
+[gd_scene load_steps=29 format=3 uid="uid://cq6y8xomtxw74"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_hkqh2"]
 [ext_resource type="Texture2D" uid="uid://brgcnplvtpqrk" path="res://Art/characters.png" id="2_0rfdr"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://jj2fujd7gxsf" path="res://Sounds/explodemini.wav" id="4_ful8b"]
 [ext_resource type="Texture2D" uid="uid://by7qv60k45qsl" path="res://Art/swoosh.png" id="5_41mr0"]
 [ext_resource type="PackedScene" uid="uid://jtpny2ydlj12" path="res://Scenes/dash.tscn" id="6_1n1fm"]
+[ext_resource type="Script" path="res://Scenes/FootStepPlayer.gd" id="7_xejka"]
+[ext_resource type="AudioStream" uid="uid://dq2vxd7w7e4lf" path="res://Sounds/foom_0.wav" id="8_52tpj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5t80"]
 size = Vector2(15, 24)
@@ -288,6 +290,12 @@ libraries = {
 }
 
 [node name="Dash" parent="." instance=ExtResource("6_1n1fm")]
+
+[node name="FootStepPlayer" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("7_xejka")
+
+[node name="DashPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_52tpj")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="SlashSprite/WeaponCollision" to="." method="_on_weapon_collision_body_entered"]

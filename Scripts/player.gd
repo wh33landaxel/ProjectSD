@@ -20,6 +20,7 @@ var speed = 300.0
 
 func _ready():
 	Global.player = self
+	animated_sprite.connect("frame_changed", attempt_play_footstep)
 
 func _physics_process(delta):
 	
@@ -33,6 +34,7 @@ func _physics_process(delta):
 	#Handle Dash
 	if Input.is_action_just_pressed("dash") and dash.can_dash:
 		dash.start_dash(animated_sprite, dash_duration)
+		$DashPlayer.play()
 
 	speed = DASH_SPEED if dash.is_dashing() else DEFAULT_SPEED
 
@@ -60,6 +62,9 @@ func _physics_process(delta):
 	
 	if is_on_floor() and velocity.x != 0:
 		$AnimatedSprite2D.play("walking")
+	
+	if is_on_floor() and velocity.x == 0:
+		$AnimatedSprite2D.play("idle")
 
 	if is_on_floor():
 		if velocity.x > 0 and not is_facing_right:
@@ -76,6 +81,13 @@ func get_move_direction():
 
 func dash_ended():
 	velocity.y = 0
+	
+func attempt_play_footstep():
+	if animated_sprite.animation == "walking" and animated_sprite.frame == 1 or animated_sprite.frame == 3:
+		play_footstep()
+
+func play_footstep():
+	$FootStepPlayer.play_step()
 
 func flip():
 	is_facing_right = !is_facing_right
