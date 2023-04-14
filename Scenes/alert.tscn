@@ -172,3 +172,4 @@ shape = SubResource("RectangleShape2D_o0xx5")
 stream = ExtResource("4_fpcqy")
 
 [connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
