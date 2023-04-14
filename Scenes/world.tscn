@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bie4eo01i7boq"]
+[gd_scene load_steps=18 format=3 uid="uid://bie4eo01i7boq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ky31f"]
 [ext_resource type="PackedScene" uid="uid://cq6y8xomtxw74" path="res://Scenes/player.tscn" id="2_ayfde"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://ckpfltemsrgtq" path="res://Scenes/enemy.tscn" id="10_sugn5"]
 [ext_resource type="AudioStream" uid="uid://75kx0cjbk2s4" path="res://Sounds/fun_day_out.mp3" id="11_wsoln"]
 [ext_resource type="AudioStream" uid="uid://bxu5jk4v3yliq" path="res://Sounds/Blackmoor Tides Loop.wav" id="12_os8fd"]
+[ext_resource type="Script" path="res://Scenes/EnemyFollow2D.gd" id="13_4ijd5"]
+[ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="13_nw3aq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l3v"]
 texture = ExtResource("3_cpitv")
@@ -331,6 +333,12 @@ texture = ExtResource("3_cpitv")
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_k8l3v")
 
+[sub_resource type="Curve2D" id="Curve2D_j3sx8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4, -1, 0, 0, 0, 0, 351, -4, 0, 0, 0, 0, 723, -5, 0, 0, 0, 0, 1132, 7, 0, 0, 0, 0, 1369, -9)
+}
+point_count = 5
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_ky31f")
 
@@ -457,6 +465,18 @@ autoplay = true
 
 [node name="AlertMusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_os8fd")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(2.08165e-12, -200)
+curve = SubResource("Curve2D_j3sx8")
+
+[node name="EnemyFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(4, -1)
+rotation = -0.00864532
+script = ExtResource("13_4ijd5")
+
+[node name="EyeBot" parent="Path2D/EnemyFollow2D" instance=ExtResource("13_nw3aq")]
+on_path = true
 
 [connection signal="pressed" from="GameOverHUD/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="CloudTimer" to="." method="_on_cloud_timer_timeout"]
