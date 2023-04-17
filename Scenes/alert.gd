@@ -5,6 +5,7 @@ extends Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim_player.play("alert_appeared")
+	$ExplosionSprite.visible = false
 
 
 func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):

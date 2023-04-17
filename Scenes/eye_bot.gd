@@ -4,6 +4,8 @@ var dir = Vector2()
 var player
 @export var offset = 50
 @export var on_path = false 
+@onready var audio_player = $AudioStreamPlayer2D
+@onready var anim_player = $AnimationPlayer
 const SPEED = 50
 var health = 1
 
@@ -29,3 +31,12 @@ func get_dir(target, diff):
 		return ret
 
 
+func _on_hit_area_entered(area_rid, area, area_shape_index, local_shape_index):
+	if area.is_in_group("slash"):
+		anim_player.play("explosion")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "explosion":
+		queue_free()
+	pass # Replace with function body.

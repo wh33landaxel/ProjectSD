@@ -1,10 +1,90 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5bdnactx4pxs"]
+[gd_scene load_steps=11 format=3 uid="uid://c5bdnactx4pxs"]
 
 [ext_resource type="Script" path="res://Scenes/eye_bot.gd" id="1_bl27v"]
 [ext_resource type="Texture2D" uid="uid://cclmbgevlqg18" path="res://Art/sprite_5.png" id="1_p7ko6"]
+[ext_resource type="Texture2D" uid="uid://dicvqqhg6y20h" path="res://Art/explosion.png" id="3_6tecy"]
+[ext_resource type="Script" path="res://Scenes/ExplosionSprite2D.gd" id="4_mq7ov"]
+[ext_resource type="AudioStream" uid="uid://jj2fujd7gxsf" path="res://Sounds/explodemini.wav" id="5_xaqii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euenl"]
 size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_st5y4"]
+size = Vector2(21.4, 18.2)
+
+[sub_resource type="Animation" id="Animation_74yed"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_v3603"]
+resource_name = "explosion"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplosionSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7m1u2"]
+_data = {
+"RESET": SubResource("Animation_74yed"),
+"explosion": SubResource("Animation_v3603")
+}
 
 [node name="EyeBot" type="CharacterBody2D"]
 scale = Vector2(5, 5)
@@ -18,3 +98,26 @@ region_rect = Rect2(3.95311, 0, 25.5399, 17.376)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_euenl")
+
+[node name="HitArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
+position = Vector2(-0.1, 0.0999998)
+shape = SubResource("RectangleShape2D_st5y4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7m1u2")
+}
+
+[node name="ExplosionSprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.2, 0)
+texture = ExtResource("3_6tecy")
+hframes = 5
+script = ExtResource("4_mq7ov")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xaqii")
+
+[connection signal="area_shape_entered" from="HitArea2D" to="." method="_on_hit_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
