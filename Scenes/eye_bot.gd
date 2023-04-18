@@ -10,6 +10,7 @@ const SPEED = 50
 var health = 1
 
 func _ready(): 
+	$ExplosionSprite2D.visible = false
 	if not on_path:
 		player = Global.player
 		dir = get_dir(player, 0)
