@@ -39,7 +39,7 @@ func _physics_process(delta):
 	speed = DASH_SPEED if dash.is_dashing() else DEFAULT_SPEED
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$AnimatedSprite2D.play("jump")
 		
@@ -79,9 +79,6 @@ func get_move_direction():
 		int(Input.is_action_pressed('ui_right')) - int(Input.is_action_pressed('ui_left')),
 		int(Input.is_action_pressed('ui_down')) - int(Input.is_action_pressed('ui_up'))
 	)
-
-func dash_ended():
-	velocity.y = 0
 	
 func attempt_play_footstep():
 	if animated_sprite.animation == "walking" and animated_sprite.frame == 1 or animated_sprite.frame == 3:

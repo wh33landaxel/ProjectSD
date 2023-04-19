@@ -345,7 +345,7 @@ point_count = 5
 script = ExtResource("1_ky31f")
 
 [node name="Player" parent="." instance=ExtResource("2_ayfde")]
-position = Vector2(2362, -373)
+position = Vector2(112, 426)
 scale = Vector2(3, 3)
 metadata/_edit_group_ = true
 

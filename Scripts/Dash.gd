@@ -2,7 +2,7 @@ extends Node2D
 
 signal dash_ended
 
-const DASH_DELAY = 0.4
+const DASH_DELAY = 4.0
 
 @onready var duration_timer = $DurationTimer
 @onready var ghost_timer = $GhostTimer

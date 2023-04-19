@@ -36,6 +36,5 @@ func _process(delta):
 	cur_time += delta
 	while cur_time >= txt_display_rate and txt_ind < text_to_display.length():
 		cur_time -= txt_display_rate
-		print("Text index :", txt_ind)
 		text_label.text += text_to_display[txt_ind]
 		txt_ind += 1
