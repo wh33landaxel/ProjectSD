@@ -489,6 +489,26 @@ scale = Vector2(3, 3)
 position = Vector2(2546, -383)
 text_to_show = "Hey how's it hangin?? "
 
+[node name="EyeBot2" parent="." instance=ExtResource("13_nw3aq")]
+position = Vector2(3024, -372)
+rotation = -0.00864532
+on_path = true
+
+[node name="EyeBot3" parent="." instance=ExtResource("13_nw3aq")]
+position = Vector2(3271, -376)
+rotation = -0.00864532
+on_path = true
+
+[node name="EyeBot4" parent="." instance=ExtResource("13_nw3aq")]
+position = Vector2(3501, -380)
+rotation = -0.00864532
+on_path = true
+
+[node name="EyeBot5" parent="." instance=ExtResource("13_nw3aq")]
+position = Vector2(3729, -532)
+rotation = -0.00864532
+on_path = true
+
 [node name="TextTrigger2" parent="." instance=ExtResource("16_uvr02")]
 position = Vector2(2775, -379)
 text_to_show = "DUDE WATCH THE LEDGE!!"

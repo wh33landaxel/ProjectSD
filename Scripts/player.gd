@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const DEFAULT_SPEED = 300.0
+const RUN_SPEED = 400
 const DASH_SPEED = 600.0
 const JUMP_VELOCITY = -400.0
 const PUSHBACK_FORCE = 50
@@ -13,15 +14,25 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_facing_right = true
 var dead = false
 var dash_duration = 0.2
+var can_run = false
+var is_running = false
 var speed = 300.0
+var run_timer = null
+var buffer_time = 0.2
+const BOUNCE_VELOCITY = 500
+
 @onready var animation_player = $AnimationPlayer
 @onready var dash = $Dash
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
+	run_timer = Timer.new()
+	run_timer.wait_time = buffer_time
+	add_child(run_timer)
+	run_timer.connect("timeout", _on_run_timer_timeout)
 	Global.player = self
 	animated_sprite.connect("frame_changed", attempt_play_footstep)
-
+	
 func _physics_process(delta):
 	
 	if dead:
@@ -35,8 +46,30 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("dash") and dash.can_dash:
 		dash.start_dash(animated_sprite, dash_duration)
 		$DashPlayer.play()
+	
+	if Input.is_action_pressed("ui_right"):
+		if can_run:
+			is_running = true
+		else:
+			is_running = false
 
-	speed = DASH_SPEED if dash.is_dashing() else DEFAULT_SPEED
+	if Input.is_action_just_pressed("ui_right"):
+		if can_run == false: 
+			run_timer.start()
+	
+	if Input.is_action_just_released("ui_right"):
+		if !run_timer.is_stopped():
+			can_run = true
+		else:
+			can_run = false
+		
+	
+	if dash.is_dashing():
+		speed = DASH_SPEED
+	elif is_running:
+		speed = RUN_SPEED
+	else:
+		speed = DEFAULT_SPEED
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -77,7 +110,7 @@ func _physics_process(delta):
 			flip()
 		elif velocity.x < 0 and is_facing_right:
 			flip()
-
+			
 #Gets moving direction for all axes
 func get_move_direction():
 	return Vector2(
@@ -125,3 +158,19 @@ func _on_weapon_collision_body_entered(body):
 
 func _on_dash_ended():
 	velocity.y = 0
+
+func _on_run_timer_timeout():
+	if !Input.is_action_pressed("ui_right"):
+		can_run = false
+
+
+func _on_down_weapon_collision_body_entered(body):
+# Calculate the direction of the bounce
+	var bounce_direction = position - body.global_position
+	
+	# Apply the bounce velocity in the opposite direction of the enemy
+	velocity = bounce_direction.normalized() * BOUNCE_VELOCITY
+	
+	# Move the player to avoid colliding with the enemy again
+	move_and_slide()
+

@@ -2,7 +2,7 @@ extends Node2D
 
 signal dash_ended
 
-const DASH_DELAY = 0.4
+const DASH_DELAY = 1
 
 @onready var duration_timer = $DurationTimer
 @onready var ghost_timer = $GhostTimer
@@ -13,7 +13,7 @@ var sprite
 
 func start_dash(sprite, duration):
 	self.sprite = sprite
-	
+	can_dash = false
 	duration_timer.wait_time = duration
 	duration_timer.start()
 	ghost_timer.start()

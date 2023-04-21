@@ -86,7 +86,7 @@ _data = {
 "explosion": SubResource("Animation_v3603")
 }
 
-[node name="EyeBot" type="CharacterBody2D"]
+[node name="EyeBot" type="CharacterBody2D" groups=["eye_bot"]]
 scale = Vector2(5, 5)
 script = ExtResource("1_bl27v")
 
