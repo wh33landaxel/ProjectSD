@@ -1,24 +1,24 @@
-[gd_scene load_steps=20 format=3 uid="uid://bie4eo01i7boq"]
+[gd_scene load_steps=20 format=3 uid="uid://bco88281exh6p"]
 
-[ext_resource type="Script" path="res://Scripts/world.gd" id="1_ky31f"]
-[ext_resource type="PackedScene" uid="uid://cq6y8xomtxw74" path="res://Scenes/player.tscn" id="2_ayfde"]
-[ext_resource type="Texture2D" uid="uid://d18yupoexk8jl" path="res://Art/sheet.png" id="3_cpitv"]
-[ext_resource type="FontFile" uid="uid://cg0uvdl4ofqt8" path="res://Fonts/Xolonium-Regular.ttf" id="3_jv4og"]
-[ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="4_mn4vu"]
-[ext_resource type="Texture2D" uid="uid://dywet286ktniq" path="res://Art/Backgrounds/bg-clouds.png" id="6_hrsex"]
-[ext_resource type="Texture2D" uid="uid://71cb3gh55nfo" path="res://Art/Backgrounds/bg-mountains.png" id="7_25hia"]
-[ext_resource type="Texture2D" uid="uid://bm25q0npduqeb" path="res://Art/Backgrounds/bg-trees.png" id="8_5hn4l"]
-[ext_resource type="PackedScene" uid="uid://bjib6uahpeq37" path="res://Scenes/camera.tscn" id="10_6w61b"]
-[ext_resource type="PackedScene" uid="uid://ckpfltemsrgtq" path="res://Scenes/enemy.tscn" id="10_sugn5"]
-[ext_resource type="AudioStream" uid="uid://75kx0cjbk2s4" path="res://Sounds/fun_day_out.mp3" id="11_wsoln"]
-[ext_resource type="AudioStream" uid="uid://bxu5jk4v3yliq" path="res://Sounds/Blackmoor Tides Loop.wav" id="12_os8fd"]
-[ext_resource type="Script" path="res://Scenes/EnemyFollow2D.gd" id="13_4ijd5"]
-[ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="13_nw3aq"]
-[ext_resource type="PackedScene" uid="uid://3ukadnjxn6kn" path="res://Scenes/npc.tscn" id="15_nitae"]
-[ext_resource type="PackedScene" uid="uid://b5icm2x2aqmnl" path="res://Scenes/text_trigger.tscn" id="16_uvr02"]
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_vojb6"]
+[ext_resource type="PackedScene" uid="uid://cq6y8xomtxw74" path="res://Scenes/player.tscn" id="2_65jeu"]
+[ext_resource type="FontFile" uid="uid://cg0uvdl4ofqt8" path="res://Fonts/Xolonium-Regular.ttf" id="3_7bp75"]
+[ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="4_75nno"]
+[ext_resource type="Texture2D" uid="uid://d18yupoexk8jl" path="res://Art/sheet.png" id="5_w3pui"]
+[ext_resource type="Texture2D" uid="uid://dywet286ktniq" path="res://Art/Backgrounds/bg-clouds.png" id="6_bb3p2"]
+[ext_resource type="Texture2D" uid="uid://71cb3gh55nfo" path="res://Art/Backgrounds/bg-mountains.png" id="7_s7gg1"]
+[ext_resource type="Texture2D" uid="uid://bm25q0npduqeb" path="res://Art/Backgrounds/bg-trees.png" id="8_qxh22"]
+[ext_resource type="PackedScene" uid="uid://ckpfltemsrgtq" path="res://Scenes/enemy.tscn" id="9_sahuk"]
+[ext_resource type="PackedScene" uid="uid://bjib6uahpeq37" path="res://Scenes/camera.tscn" id="10_l3jw7"]
+[ext_resource type="AudioStream" uid="uid://75kx0cjbk2s4" path="res://Sounds/fun_day_out.mp3" id="11_syibb"]
+[ext_resource type="AudioStream" uid="uid://bxu5jk4v3yliq" path="res://Sounds/Blackmoor Tides Loop.wav" id="12_ljqbp"]
+[ext_resource type="Script" path="res://Scenes/EnemyFollow2D.gd" id="13_vpc08"]
+[ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="14_whrcc"]
+[ext_resource type="PackedScene" uid="uid://3ukadnjxn6kn" path="res://Scenes/npc.tscn" id="15_4lni3"]
+[ext_resource type="PackedScene" uid="uid://b5icm2x2aqmnl" path="res://Scenes/text_trigger.tscn" id="16_o0tgk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l3v"]
-texture = ExtResource("3_cpitv")
+texture = ExtResource("5_w3pui")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -342,10 +342,10 @@ _data = {
 point_count = 5
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_ky31f")
+script = ExtResource("1_vojb6")
 
-[node name="Player" parent="." instance=ExtResource("2_ayfde")]
-position = Vector2(2228, -369)
+[node name="Player" parent="." instance=ExtResource("2_65jeu")]
+position = Vector2(112, 426)
 scale = Vector2(3, 3)
 metadata/_edit_group_ = true
 
@@ -362,11 +362,11 @@ visible = false
 [node name="ScoreLabel" type="Label" parent="HUD"]
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("3_jv4og")
+theme_override_fonts/font = ExtResource("3_7bp75")
 theme_override_font_sizes/font_size = 60
 text = "Test Font
 "
-script = ExtResource("4_mn4vu")
+script = ExtResource("4_75nno")
 
 [node name="GameOverHUD" type="CanvasLayer" parent="."]
 
@@ -382,7 +382,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_jv4og")
+theme_override_fonts/font = ExtResource("3_7bp75")
 theme_override_font_sizes/font_size = 60
 text = "Game Over
 "
@@ -399,7 +399,7 @@ offset_right = 40.5
 offset_bottom = -187.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("3_jv4og")
+theme_override_fonts/font = ExtResource("3_7bp75")
 theme_override_font_sizes/font_size = 50
 text = "Try Again"
 
@@ -435,7 +435,7 @@ motion_mirroring = Vector2(1600, 2560)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(320, 240)
 scale = Vector2(10, 10)
-texture = ExtResource("6_hrsex")
+texture = ExtResource("6_bb3p2")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1600, 2560)
@@ -443,7 +443,7 @@ motion_mirroring = Vector2(1600, 2560)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2(320, 240)
 scale = Vector2(10, 10)
-texture = ExtResource("7_25hia")
+texture = ExtResource("7_s7gg1")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1600, 2560)
@@ -451,23 +451,24 @@ motion_mirroring = Vector2(1600, 2560)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2(320, 240)
 scale = Vector2(10, 10)
-texture = ExtResource("8_5hn4l")
+texture = ExtResource("8_qxh22")
 
-[node name="Enemy" parent="." instance=ExtResource("10_sugn5")]
+[node name="Enemy" parent="." instance=ExtResource("9_sahuk")]
 visible = false
 position = Vector2(1669, 430)
 scale = Vector2(3, 3)
 
-[node name="Camera_1" parent="." instance=ExtResource("10_6w61b")]
+[node name="Camera_1" parent="." instance=ExtResource("10_l3jw7")]
 position = Vector2(472, 71)
 flip_h = true
 
 [node name="NiceMusicPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_wsoln")
-autoplay = true
+stream = ExtResource("11_syibb")
+volume_db = -80.0
 
 [node name="AlertMusicPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_os8fd")
+stream = ExtResource("12_ljqbp")
+volume_db = -80.0
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(2.08165e-12, -200)
@@ -476,20 +477,20 @@ curve = SubResource("Curve2D_j3sx8")
 [node name="EnemyFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2(4, -1)
 rotation = -0.00864532
-script = ExtResource("13_4ijd5")
+script = ExtResource("13_vpc08")
 
-[node name="EyeBot" parent="Path2D/EnemyFollow2D" instance=ExtResource("13_nw3aq")]
+[node name="EyeBot" parent="Path2D/EnemyFollow2D" instance=ExtResource("14_whrcc")]
 on_path = true
 
-[node name="NPC" parent="." instance=ExtResource("15_nitae")]
+[node name="NPC" parent="." instance=ExtResource("15_4lni3")]
 position = Vector2(2662, -359)
 scale = Vector2(3, 3)
 
-[node name="TextTrigger" parent="." instance=ExtResource("16_uvr02")]
+[node name="TextTrigger" parent="." instance=ExtResource("16_o0tgk")]
 position = Vector2(2546, -383)
 text_to_show = "Hey how's it hangin?? "
 
-[node name="TextTrigger2" parent="." instance=ExtResource("16_uvr02")]
+[node name="TextTrigger2" parent="." instance=ExtResource("16_o0tgk")]
 position = Vector2(2775, -379)
 text_to_show = "DUDE WATCH THE LEDGE!!"
 mood_to_show = 2

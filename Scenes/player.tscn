@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cq6y8xomtxw74"]
+[gd_scene load_steps=31 format=3 uid="uid://cq6y8xomtxw74"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_hkqh2"]
 [ext_resource type="Texture2D" uid="uid://brgcnplvtpqrk" path="res://Art/characters.png" id="2_0rfdr"]
@@ -143,7 +143,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1cdgw"]
-size = Vector2(16.333, 16)
+size = Vector2(21.1769, 22.9894)
 
 [sub_resource type="Animation" id="Animation_dvbca"]
 length = 0.001
@@ -194,6 +194,66 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../DownSlashSprite:region_rect")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(32, 2.08165e-12, 32, 32)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../DownSlashSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../DownSlashSprite/WeaponCollision/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../DownSlashSprite/WeaponCollision/CollisionShape2D:shape:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24.2572, 33.944)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../DownSlashSprite/WeaponCollision/CollisionShape2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6.93064, -1.03842)]
 }
 
 [sub_resource type="Animation" id="Animation_3xdyw"]
@@ -249,9 +309,75 @@ tracks/3/keys = {
 "values": [true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_t3fky"]
+resource_name = "down_slash"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../DownSlashSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(2.08165e-12, 2.08165e-12, 32, 32), Rect2(2.08165e-12, 2.08165e-12, 32, 32), Rect2(32, 2.08165e-12, 32, 32), Rect2(64, 2.08165e-12, 32, 32), Rect2(96, 2.08165e-12, 32, 32), Rect2(2.08165e-12, 2.08165e-12, 32, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../DownSlashSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../DownSlashSprite/WeaponCollision/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../DownSlashSprite/WeaponCollision/CollisionShape2D:shape:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16.333, 16), Vector2(24.2572, 33.944), Vector2(24.2572, 33.944), Vector2(21.1769, 22.9894)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../DownSlashSprite/WeaponCollision/CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.96856, -10.0104), Vector2(6.93064, -1.03842), Vector2(6.93064, -1.03842), Vector2(5.39051, 4.43888)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7k1ds"]
 _data = {
 "RESET": SubResource("Animation_dvbca"),
+"down_slash": SubResource("Animation_t3fky"),
 "slash": SubResource("Animation_3xdyw")
 }
 
@@ -284,6 +410,22 @@ position = Vector2(7.20833, -4.75)
 shape = SubResource("RectangleShape2D_1cdgw")
 disabled = true
 
+[node name="DownSlashSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 23)
+rotation = 1.57429
+texture = ExtResource("5_41mr0")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 32, 32)
+
+[node name="WeaponCollision" type="Area2D" parent="DownSlashSprite" groups=["slash"]]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownSlashSprite/WeaponCollision" groups=["slash"]]
+position = Vector2(5.39051, 4.43888)
+shape = SubResource("RectangleShape2D_1cdgw")
+disabled = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../SlashSprite")
 reset_on_save = false
@@ -304,4 +446,5 @@ stream = ExtResource("9_715h0")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="SlashSprite/WeaponCollision" to="." method="_on_weapon_collision_body_entered"]
+[connection signal="body_entered" from="DownSlashSprite/WeaponCollision" to="." method="_on_weapon_collision_body_entered"]
 [connection signal="dash_ended" from="Dash" to="." method="_on_dash_ended"]
