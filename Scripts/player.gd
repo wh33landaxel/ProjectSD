@@ -155,6 +155,10 @@ func _on_weapon_collision_body_entered(body):
 		var direction = (body.position - position).normalized()
 		var impulse = Vector2(direction.x * PUSHBACK_FORCE, 0)
 		body.move_and_collide(impulse)
+	if body.is_in_group("eye_bot"):
+		if get_tree().get_nodes_in_group("dash_ghost").size() > 0:
+			print("slash dash")
+			dash.can_dash = true
 
 func _on_dash_ended():
 	velocity.y = 0

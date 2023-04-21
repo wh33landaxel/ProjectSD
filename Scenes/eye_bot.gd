@@ -34,6 +34,9 @@ func get_dir(target, diff):
 
 func _on_hit_area_entered(area_rid, area, area_shape_index, local_shape_index):
 	if area.is_in_group("slash"):
+		$CollisionShape2D.disabled = true
+		collision_layer = 0
+		collision_mask = 0
 		anim_player.play("explosion")
 
 

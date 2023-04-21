@@ -381,7 +381,7 @@ _data = {
 "slash": SubResource("Animation_3xdyw")
 }
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_hkqh2")
 
 [node name="Camera2D" type="Camera2D" parent="."]

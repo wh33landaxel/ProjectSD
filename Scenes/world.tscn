@@ -482,15 +482,20 @@ script = ExtResource("13_4ijd5")
 on_path = true
 
 [node name="NPC" parent="." instance=ExtResource("15_nitae")]
-position = Vector2(2662, -359)
+position = Vector2(1800, -363)
 scale = Vector2(3, 3)
 
 [node name="TextTrigger" parent="." instance=ExtResource("16_uvr02")]
-position = Vector2(2546, -383)
+position = Vector2(1684, -387)
 text_to_show = "Hey how's it hangin?? "
 
 [node name="EyeBot2" parent="." instance=ExtResource("13_nw3aq")]
 position = Vector2(3024, -372)
+rotation = -0.00864532
+on_path = true
+
+[node name="EyeBot6" parent="." instance=ExtResource("13_nw3aq")]
+position = Vector2(2426, -376)
 rotation = -0.00864532
 on_path = true
 
@@ -510,7 +515,7 @@ rotation = -0.00864532
 on_path = true
 
 [node name="TextTrigger2" parent="." instance=ExtResource("16_uvr02")]
-position = Vector2(2775, -379)
+position = Vector2(1913, -383)
 text_to_show = "DUDE WATCH THE LEDGE!!"
 mood_to_show = 2
 

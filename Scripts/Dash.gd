@@ -6,10 +6,12 @@ const DASH_DELAY = 1
 
 @onready var duration_timer = $DurationTimer
 @onready var ghost_timer = $GhostTimer
+@onready var dash_delay_timer = $DashDelayTimer
 
 var ghost_scene = preload("res://Scenes/dash_ghost.tscn")
 var can_dash = true
 var sprite
+
 
 func start_dash(sprite, duration):
 	self.sprite = sprite
@@ -36,12 +38,14 @@ func is_dashing():
 	return !duration_timer.is_stopped()
 	
 func end_dash(): 
+	dash_delay_timer.start()
 	ghost_timer.stop()
 	can_dash = false
-	await get_tree().create_timer(DASH_DELAY).timeout
+	await dash_delay_timer.timeout
 	can_dash = true
 
 func _on_duration_timer_timeout():
+	print("dash timeout")
 	end_dash()
 	emit_signal("dash_ended")
 
