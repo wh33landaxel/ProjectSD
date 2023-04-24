@@ -1,4 +1,8 @@
+class_name Player
+
 extends CharacterBody2D
+
+enum States {ON_GROUND, IN_AIR, DASHING}
 
 signal player_ded
 
@@ -26,6 +30,7 @@ func _ready():
 	
 func _physics_process(delta):
 	
+	#If you dead, you dead
 	if dead:
 		return
 	
@@ -45,6 +50,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		player_sprite.play("jump")
 	
+	#Attack Slash
 	if Input.is_action_just_pressed("attack"):
 		player_sprite.play("char_slash")
 		$SlashPlayer.play()
@@ -53,6 +59,7 @@ func _physics_process(delta):
 		else:
 			animation_player.play("slash")
 		
+	# Move direction with velocity	
 	var move_direction = get_move_direction()
 	if move_direction:
 		velocity.x = move_direction.x * speed
@@ -63,6 +70,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	#Sprite Animations
 	if is_on_floor() and velocity.x != 0:
 		player_sprite.play("walking")
 	
