@@ -29,6 +29,7 @@ func instantiate_ghost():
 	var current_frame_index = sprite.frame
 	var frame = sprite.sprite_frames.get_frame_texture("walking", current_frame_index)
 	ghost.texture = frame
+	#Scale up texture
 	ghost.scale = Vector2(3,3)
 	
 	ghost.global_position = global_position

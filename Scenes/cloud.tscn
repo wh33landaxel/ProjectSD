@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://fj84cqs8d4uo"]
 
 [ext_resource type="Script" path="res://Scripts/cloud.gd" id="1_ii17e"]
 [ext_resource type="Texture2D" uid="uid://82fdf7bx3umt" path="res://Art/cumulus-small2.png" id="2_4gwf0"]
