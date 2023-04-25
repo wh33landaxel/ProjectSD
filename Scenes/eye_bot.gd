@@ -16,8 +16,7 @@ func _ready():
 		dir = get_dir(player, 0)
 	
 	
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not on_path: 
 		dir = get_dir(player, 0)
 		look_at(player.position)
