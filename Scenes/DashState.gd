@@ -18,13 +18,6 @@ func physics_update(delta: float):
 	
 	player.move_and_slide()
 
-#Gets moving direction for all axes
-func get_move_direction():
-	return Vector2(
-		int(Input.is_action_pressed('ui_right')) - int(Input.is_action_pressed('ui_left')),
-		int(Input.is_action_pressed('ui_down')) - int(Input.is_action_pressed('ui_up'))
-	)
-
 func _on_dash_ended():
 	
 	player.velocity.y = 0
@@ -34,6 +27,10 @@ func _on_dash_ended():
 		state_machine.transition_to("Air")
 	elif player.is_on_floor() and is_equal_approx(player.velocity.x, 0.0):
 		state_machine.transition_to("Walk")
+	elif Input.is_action_just_pressed("attack") and Input.is_action_pressed("ui_down"):
+		state_machine.transition_to("Attack", {do_down_slash = true})
+	elif Input.is_action_just_pressed("attack"):
+		state_machine.transition_to("Attack", {do_forward_slash = true})
 	else: 
 		state_machine.transition_to("Idle")
 

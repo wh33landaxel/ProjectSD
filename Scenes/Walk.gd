@@ -36,14 +36,11 @@ func physics_update(_delta: float):
 		state_machine.transition_to("DashState", {do_dash = true})
 	elif is_equal_approx(move_direction.x, 0.0):
 		state_machine.transition_to("Idle")
+	elif Input.is_action_just_pressed("attack") and Input.is_action_pressed("ui_down"):
+		state_machine.transition_to("Attack", {do_down_slash = true})
+	elif Input.is_action_just_pressed("attack"):
+		state_machine.transition_to("Attack", {do_forward_slash = true})
 
-#Gets moving direction for all axes
-func get_move_direction():
-	return Vector2(
-		int(Input.is_action_pressed('ui_right')) - int(Input.is_action_pressed('ui_left')),
-		int(Input.is_action_pressed('ui_down')) - int(Input.is_action_pressed('ui_up'))
-	)
-	
 func attempt_play_footstep():
 	if player.player_sprite.animation == "walking" and player.player_sprite.frame == 1 or player.player_sprite.frame == 3:
 		play_footstep()

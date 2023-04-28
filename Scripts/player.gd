@@ -30,16 +30,7 @@ func _ready():
 func _physics_process(delta):
 	if dead:
 		return
-		
-#	#Attack Slash
-	if Input.is_action_just_pressed("attack"):
-		player_sprite.play("char_slash")
-		$SlashPlayer.play()
-		if Input.is_action_pressed("ui_down") and not animation_player.current_animation == "down_slash":
-			animation_player.play("down_slash")
-		else:
-			animation_player.play("slash")
-#
+
 func flip():
 	is_facing_right = !is_facing_right
 	player_sprite.flip_h = !player_sprite.flip_h

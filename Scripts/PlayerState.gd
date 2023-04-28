@@ -10,3 +10,11 @@ func _ready():
 	await owner.ready
 	player = owner as Player
 	assert(player != null)
+
+#Gets moving direction for all axes
+func get_move_direction():
+	return Vector2(
+		int(Input.is_action_pressed('ui_right')) - int(Input.is_action_pressed('ui_left')),
+		int(Input.is_action_pressed('ui_down')) - int(Input.is_action_pressed('ui_up'))
+	)
+	

@@ -22,3 +22,8 @@ func physics_update(delta: float):
 			state_machine.transition_to("Idle")
 		else:
 			state_machine.transition_to("Walk")
+	
+	if Input.is_action_just_pressed("attack") and Input.is_action_pressed("ui_down"):
+		state_machine.transition_to("Attack", {do_down_slash = true})
+	elif Input.is_action_just_pressed("attack"):
+		state_machine.transition_to("Attack", {do_forward_slash = true})
