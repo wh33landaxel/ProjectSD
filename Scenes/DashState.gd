@@ -2,6 +2,7 @@ extends PlayerState
 
 func enter(msg = {}):
 	if msg.has("do_dash"):
+		player.dash.can_dash = false
 		player.dash.start_dash(player.player_sprite, player.dash_duration)
 		player.dash_player.play()
 
@@ -22,7 +23,6 @@ func _on_dash_ended():
 	
 	player.velocity.y = 0
 	player.speed = player.DEFAULT_SPEED
-	player.dash.can_dash = true
 	
 	if !player.is_on_floor():
 		state_machine.transition_to("Air")

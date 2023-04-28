@@ -7,7 +7,7 @@ const BOUNCE_VELOCITY = 500
 const DASH_SPEED = 600.0
 const DEFAULT_SPEED = 300.0
 const RUN_SPEED = 450.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -600.0
 const PUSHBACK_FORCE = 50
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

@@ -12,7 +12,7 @@ func physics_update(_delta: float):
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")
 		return
-	
+		
 	if Input.is_action_pressed("run"):
 		is_running = true
 	else:

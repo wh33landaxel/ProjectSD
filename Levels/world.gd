@@ -18,7 +18,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("reset_game"):
 		_reset_scene()
 
-func game_over(): 
+func game_over():
 	game_over_hud.show()
 	
 func new_game():
