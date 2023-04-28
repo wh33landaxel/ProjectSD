@@ -22,11 +22,12 @@ func _on_dash_ended():
 	
 	player.velocity.y = 0
 	player.speed = player.DEFAULT_SPEED
+	player.dash.can_dash = true
 	
 	if !player.is_on_floor():
 		state_machine.transition_to("Air")
 	elif player.is_on_floor() and is_equal_approx(player.velocity.x, 0.0):
-		state_machine.transition_to("Walk")
+		state_machine.transition_to("Idle")
 	elif Input.is_action_just_pressed("attack") and Input.is_action_pressed("ui_down"):
 		state_machine.transition_to("Attack", {do_down_slash = true})
 	elif Input.is_action_just_pressed("attack"):

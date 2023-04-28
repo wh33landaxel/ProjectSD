@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Dash
+
 signal dash_ended
 
 const DASH_DELAY = 1
@@ -9,7 +11,7 @@ const DASH_DELAY = 1
 @onready var dash_delay_timer = $DashDelayTimer
 
 var ghost_scene = preload("res://Scenes/dash_ghost.tscn")
-var can_dash = true
+var can_dash: bool = true
 var sprite
 
 

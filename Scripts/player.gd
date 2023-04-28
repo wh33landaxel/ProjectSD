@@ -6,23 +6,24 @@ signal player_ded
 const BOUNCE_VELOCITY = 500
 const DASH_SPEED = 600.0
 const DEFAULT_SPEED = 300.0
+const RUN_SPEED = 450.0
 const JUMP_VELOCITY = -400.0
 const PUSHBACK_FORCE = 50
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var is_facing_right = true
-var dead = false
-var dash_duration = 0.2
-var speed = 300.0
+var is_facing_right: bool = true
+var dead: bool = false
+var dash_duration: float = 0.2
+var speed: float = 300.0
 
-@onready var animation_player = $AnimationPlayer
-@onready var dash = $Dash
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var dash: Dash = $Dash
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var forward_slash_sprite = $SlashSprite
-@onready var footstep_player = $FootStepPlayer
-@onready var dash_player = $DashPlayer
-@onready var fsm = $StateMachine
+@onready var forward_slash_sprite: Sprite2D = $SlashSprite
+@onready var footstep_player: AudioStreamPlayer2D = $FootStepPlayer
+@onready var dash_player: AudioStreamPlayer2D = $DashPlayer
+@onready var fsm: StateMachine = $StateMachine
 
 func _ready():
 	Global.player = self
@@ -67,7 +68,7 @@ func _on_weapon_collision_body_entered(body):
 	if body.is_in_group("eye_bot"):
 		print("killed eye bot")
 		if get_tree().get_nodes_in_group("dash_ghost").size() > 0:
-			dash.can_dash = true
+			self.dash.can_dash = true
 			
 #Bounce on enemy slash mechanic
 func _on_down_weapon_collision_body_entered(body):

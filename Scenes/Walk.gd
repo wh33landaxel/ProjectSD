@@ -1,16 +1,24 @@
 extends PlayerState
 
+var is_running = false
+
 func enter(msg = {}):
 	print("connected")
 	if !player.player_sprite.is_connected("frame_changed", attempt_play_footstep):
 		player.player_sprite.connect("frame_changed", attempt_play_footstep)
+
 
 func physics_update(_delta: float):
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")
 		return
 	
-	player.speed = player.DEFAULT_SPEED
+	if Input.is_action_pressed("run"):
+		is_running = true
+	else:
+		is_running = false
+	
+	player.speed = player.DEFAULT_SPEED if !is_running else player.RUN_SPEED
 	player.player_sprite.play("walking")
 	# Move direction with velocity	
 	var move_direction = get_move_direction()
