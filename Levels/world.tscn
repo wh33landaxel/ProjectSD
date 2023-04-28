@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cvi5txu3k1ob0"]
+[gd_scene load_steps=21 format=3 uid="uid://cvi5txu3k1ob0"]
 
 [ext_resource type="Script" path="res://Levels/world.gd" id="1_pntxy"]
 [ext_resource type="PackedScene" uid="uid://bmhm4k5s0jluf" path="res://Scenes/player.tscn" id="2_twlib"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="14_jmagk"]
 [ext_resource type="PackedScene" uid="uid://3ukadnjxn6kn" path="res://Scenes/npc.tscn" id="15_220f3"]
 [ext_resource type="PackedScene" uid="uid://b5icm2x2aqmnl" path="res://Scenes/text_trigger.tscn" id="16_u2wrn"]
+[ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/Door.tscn" id="17_hi8at"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l3v"]
 texture = ExtResource("5_lptmu")
@@ -345,9 +346,8 @@ point_count = 5
 script = ExtResource("1_pntxy")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_twlib")]
-position = Vector2(2228, -369)
+position = Vector2(200, 400)
 scale = Vector2(3, 3)
-metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_top = 1.0
@@ -500,6 +500,9 @@ on_path = true
 position = Vector2(3271, -376)
 rotation = -0.00864532
 on_path = true
+
+[node name="Door" parent="." instance=ExtResource("17_hi8at")]
+position = Vector2(2640, -328)
 
 [connection signal="pressed" from="GameOverHUD/Button" to="." method="_on_button_pressed"]
 [connection signal="camera_alert" from="Camera_1" to="." method="_on_camera_alert"]

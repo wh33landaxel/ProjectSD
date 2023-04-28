@@ -24,6 +24,7 @@ var speed: float = 300.0
 @onready var footstep_player: AudioStreamPlayer2D = $FootStepPlayer
 @onready var dash_player: AudioStreamPlayer2D = $DashPlayer
 @onready var fsm: StateMachine = $StateMachine
+@onready var door_detector = $DoorDetector
 
 func _ready():
 	Global.player = self
@@ -31,6 +32,13 @@ func _ready():
 func _physics_process(delta):
 	if dead:
 		return
+	
+	var doors = door_detector.get_overlapping_areas()
+	if doors.size() > 0:
+		if doors[0].go_to_next_level:
+			LevelManager.load_next_level()
+		else:
+			LevelManager.load_previous_level()
 
 func flip():
 	is_facing_right = !is_facing_right
