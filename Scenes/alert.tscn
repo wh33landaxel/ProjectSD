@@ -157,7 +157,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0xx5"]
 size = Vector2(20, 32)
 
-[node name="Alert" type="Area2D"]
+[node name="Alert" type="Area2D" groups=["alert_node"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_q41nd")
 

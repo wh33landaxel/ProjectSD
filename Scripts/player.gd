@@ -35,10 +35,12 @@ func _physics_process(delta):
 	
 	var doors = door_detector.get_overlapping_areas()
 	if doors.size() > 0:
-		if doors[0].go_to_next_level:
+		if doors[0].go_to_next_level and !doors[0].door_locked:
 			LevelManager.load_next_level()
 		else:
-			LevelManager.load_previous_level()
+			#TODO: create some dialogue or some shit
+			#Do nothing
+			pass
 
 func flip():
 	is_facing_right = !is_facing_right
