@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckpfltemsrgtq"]
+[gd_scene load_steps=11 format=3 uid="uid://ckpfltemsrgtq"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_j5qxs"]
 [ext_resource type="Texture2D" uid="uid://brgcnplvtpqrk" path="res://Art/characters.png" id="1_u0l5f"]
-[ext_resource type="Texture2D" uid="uid://bkm7jqdjoguo7" path="res://Art/Dash.png" id="2_exmgi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mnv8l"]
 atlas = ExtResource("1_u0l5f")
@@ -22,10 +21,7 @@ region = Rect2(96, 68, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ho2ha"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_exmgi")
-}],
+"frames": [],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
