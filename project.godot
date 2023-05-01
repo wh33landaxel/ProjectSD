@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://Scripts/global.gd"
 TextDisplay="*res://Scenes/text_display.tscn"
 LevelManager="*res://Scripts/level_manager.tscn"
+ScoreDisplay="*res://Scripts/score_display.tscn"
 
 [input]
 

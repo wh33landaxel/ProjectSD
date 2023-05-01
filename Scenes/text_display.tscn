@@ -50,9 +50,15 @@ script = ExtResource("1_27tjh")
 [node name="Nodes" type="Control" parent="."]
 visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
 offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+metadata/_edit_group_ = true
 
 [node name="FacePanel" type="Panel" parent="Nodes"]
 layout_mode = 0

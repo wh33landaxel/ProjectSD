@@ -3,7 +3,8 @@ extends Node
 var level_ind = 0
 var level_list = [
 	"res://Levels/intro.tscn",
-	"res://Levels/world.tscn"
+	"res://Levels/world.tscn",
+	"res://Levels/level_3.tscn"
 ]
 
 var delete_on_load = []
