@@ -5,7 +5,9 @@ extends Node2D
 @onready var sprite = $Sprite2D
 @onready var line = $Sprite2D/Line2D
 @export var flip_h = false
+@export var position_node: Node
 var alert = preload("res://Scenes/alert.tscn")
+
 
 signal camera_alert
 # Called when the node enters the scene tree for the first time.
@@ -35,6 +37,7 @@ func _camera_enabled(enabled: bool):
 
 func spawn_alert(): 
 	var a = alert.instantiate()
-	a.position = position
-	add_child(a)
+	a.position = position_node.position
+	get_parent().add_child(a)
+
 	

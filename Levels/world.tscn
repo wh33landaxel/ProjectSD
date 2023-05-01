@@ -445,9 +445,10 @@ visible = false
 position = Vector2(1669, 430)
 scale = Vector2(3, 3)
 
-[node name="Camera_1" parent="." instance=ExtResource("10_6tdnl")]
+[node name="Camera_1" parent="." node_paths=PackedStringArray("position_node") instance=ExtResource("10_6tdnl")]
 position = Vector2(472, 71)
 flip_h = true
+position_node = NodePath("../AlertPosition")
 
 [node name="NiceMusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_46ex3")
@@ -503,6 +504,9 @@ on_path = true
 
 [node name="Door" parent="." instance=ExtResource("17_hi8at")]
 position = Vector2(2640, -328)
+
+[node name="AlertPosition" type="Node2D" parent="."]
+position = Vector2(70, 167)
 
 [connection signal="pressed" from="GameOverHUD/Button" to="." method="_on_button_pressed"]
 [connection signal="camera_alert" from="Camera_1" to="." method="_on_camera_alert"]

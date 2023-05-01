@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://x38nwbspr6hk"]
+[gd_scene load_steps=12 format=3 uid="uid://x38nwbspr6hk"]
 
 [ext_resource type="PackedScene" uid="uid://bmhm4k5s0jluf" path="res://Scenes/player.tscn" id="1_c3xtn"]
+[ext_resource type="Script" path="res://Levels/intro.gd" id="1_mmgj4"]
 [ext_resource type="Texture2D" uid="uid://d18yupoexk8jl" path="res://Art/sheet.png" id="1_obwt7"]
+[ext_resource type="PackedScene" uid="uid://b5icm2x2aqmnl" path="res://Scenes/text_trigger.tscn" id="2_lviq3"]
 [ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/Door.tscn" id="3_20is3"]
+[ext_resource type="PackedScene" uid="uid://3ukadnjxn6kn" path="res://Scenes/npc.tscn" id="3_yb1ne"]
+[ext_resource type="PackedScene" uid="uid://bjib6uahpeq37" path="res://Scenes/camera.tscn" id="6_s4f8w"]
+[ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="6_tvgrc"]
+[ext_resource type="AudioStream" uid="uid://bxu5jk4v3yliq" path="res://Sounds/Blackmoor Tides Loop.wav" id="9_dlc4p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l3v"]
 texture = ExtResource("1_obwt7")
@@ -323,10 +329,94 @@ physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_k8l3v")
 
 [node name="Intro" type="Node2D"]
+script = ExtResource("1_mmgj4")
 metadata/_edit_vertical_guides_ = []
 
-[node name="Player" parent="." instance=ExtResource("1_c3xtn")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_c3xtn")]
 position = Vector2(51, 431)
+scale = Vector2(3, 3)
+
+[node name="TextTrigger" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(760, 411)
+text_to_show = "Sup baby, it's alien here, tryna teach you about movin n shyt, press space to jump over me"
+one_time = false
+
+[node name="NPC" parent="." instance=ExtResource("3_yb1ne")]
+position = Vector2(875, 435)
+scale = Vector2(3, 3)
+
+[node name="TextTrigger3" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(1753, 407)
+text_to_show = "It might be impossible to get up to that platform"
+one_time = false
+
+[node name="TextTrigger4" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(1981, 406)
+text_to_show = "OKAY OKAY I'm just kidding calm down, hit the dash button to dash up there!"
+mood_to_show = 2
+one_time = false
+
+[node name="NPC3" parent="." instance=ExtResource("3_yb1ne")]
+position = Vector2(1868, 431)
+scale = Vector2(3, 3)
+
+[node name="TextTrigger5" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(2123, -127)
+text_to_show = "We got some BADDDD robots ahead, hit the slash button to get them outta the way!"
+mood_to_show = 2
+one_time = false
+
+[node name="TextTrigger6" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(2351, -128)
+text_to_show = "We got some BADDDD robots ahead, hit the slash button to get them outta the way!"
+mood_to_show = 2
+one_time = false
+
+[node name="NPC4" parent="." instance=ExtResource("3_yb1ne")]
+position = Vector2(2238, -103)
+scale = Vector2(3, 3)
+
+[node name="TextTrigger9" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(3911, -521)
+text_to_show = "Watch out for cameras, if they see you you need to disable their exclamation alerts"
+mood_to_show = 2
+one_time = false
+
+[node name="TextTrigger10" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(4139, -522)
+text_to_show = "Definitely not influenced by a certain gear of metal, what am i talking about?"
+one_time = false
+
+[node name="NPC6" parent="." instance=ExtResource("3_yb1ne")]
+position = Vector2(4026, -497)
+scale = Vector2(3, 3)
+
+[node name="TextTrigger11" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(5569, -850)
+text_to_show = "Good job dood"
+one_time = false
+
+[node name="TextTrigger12" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(5797, -851)
+text_to_show = "Proud of you, call me sometime"
+one_time = false
+
+[node name="NPC7" parent="." instance=ExtResource("3_yb1ne")]
+position = Vector2(5684, -826)
+scale = Vector2(3, 3)
+
+[node name="TextTrigger7" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(3159, -121)
+text_to_show = "Good job killing those bots... or not!"
+one_time = false
+
+[node name="TextTrigger8" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(3387, -122)
+text_to_show = "Go on ahead to the door up ahead"
+one_time = false
+
+[node name="NPC5" parent="." instance=ExtResource("3_yb1ne")]
+position = Vector2(3274, -97)
 scale = Vector2(3, 3)
 
 [node name="TileMap" type="TileMap" parent="." groups=["thing"]]
@@ -334,7 +424,47 @@ position = Vector2(1.19209e-07, 4)
 scale = Vector2(4.05307, 4.14234)
 tile_set = SubResource("TileSet_nbxem")
 format = 2
-layer_0/tile_data = PackedInt32Array(458752, 720899, 0, 524288, 720899, 1, 589824, 720899, 1, 655360, 720899, 1, 720896, 720899, 1, 458753, 720899, 0, 524289, 720899, 1, 589825, 720899, 1, 655361, 720899, 1, 720897, 720899, 1, 458754, 720899, 0, 524290, 720899, 1, 589826, 720899, 1, 655362, 720899, 1, 720898, 720899, 1, 458755, 720899, 0, 524291, 720899, 1, 589827, 720899, 1, 655363, 720899, 1, 720899, 720899, 1, 458756, 720899, 0, 524292, 720899, 1, 589828, 720899, 1, 655364, 720899, 1, 720900, 720899, 1, 458757, 720899, 0, 524293, 720899, 1, 589829, 720899, 1, 655365, 720899, 1, 720901, 720899, 1, 458758, 720899, 0, 524294, 720899, 1, 589830, 720899, 1, 655366, 720899, 1, 720902, 720899, 1, 458759, 720899, 0, 524295, 720899, 1, 589831, 720899, 1, 655367, 720899, 1, 720903, 720899, 1, 458760, 720899, 0, 524296, 720899, 1, 589832, 720899, 1, 655368, 720899, 1, 720904, 720899, 1, 458761, 720899, 0, 524297, 720899, 1, 589833, 720899, 1, 655369, 720899, 1, 720905, 720899, 1, 458762, 720899, 0, 524298, 720899, 1, 589834, 720899, 1, 655370, 720899, 1, 720906, 720899, 1, 458763, 720899, 0, 524299, 720899, 1, 589835, 720899, 1, 655371, 720899, 1, 720907, 720899, 1, 458764, 720899, 0, 524300, 720899, 1, 589836, 720899, 1, 655372, 720899, 1, 720908, 720899, 1, 458765, 720899, 0, 524301, 720899, 1, 589837, 720899, 1, 655373, 720899, 1, 720909, 720899, 1, 458766, 720899, 0, 524302, 720899, 1, 589838, 720899, 1, 655374, 720899, 1, 720910, 720899, 1, 458767, 720899, 0, 524303, 720899, 1, 589839, 720899, 1, 655375, 720899, 1, 720911, 720899, 1, 458768, 720899, 0, 524304, 720899, 1, 589840, 720899, 1, 655376, 720899, 1, 720912, 720899, 1, 458769, 720899, 0, 524305, 720899, 1, 589841, 720899, 1, 655377, 720899, 1, 720913, 720899, 1, 786432, 720899, 1, 786433, 720899, 1, 786434, 720899, 1, 786435, 720899, 1, 786436, 720899, 1, 786437, 720899, 1, 786438, 720899, 1, 786439, 720899, 1, 786440, 720899, 1, 786441, 720899, 1, 786442, 720899, 1, 786443, 720899, 1, 786444, 720899, 1, 786445, 720899, 1, 786446, 720899, 1, 786447, 720899, 1, 786448, 720899, 1, 786449, 720899, 1)
+layer_0/tile_data = PackedInt32Array(458752, 720899, 0, 524288, 720899, 1, 589824, 720899, 1, 655360, 720899, 1, 720896, 720899, 1, 458753, 720899, 0, 524289, 720899, 1, 589825, 720899, 1, 655361, 720899, 1, 720897, 720899, 1, 458754, 720899, 0, 524290, 720899, 1, 589826, 720899, 1, 655362, 720899, 1, 720898, 720899, 1, 458755, 720899, 0, 524291, 720899, 1, 589827, 720899, 1, 655363, 720899, 1, 720899, 720899, 1, 458756, 720899, 0, 524292, 720899, 1, 589828, 720899, 1, 655364, 720899, 1, 720900, 720899, 1, 458757, 720899, 0, 524293, 720899, 1, 589829, 720899, 1, 655365, 720899, 1, 720901, 720899, 1, 458758, 720899, 0, 524294, 720899, 1, 589830, 720899, 1, 655366, 720899, 1, 720902, 720899, 1, 458759, 720899, 0, 524295, 720899, 1, 589831, 720899, 1, 655367, 720899, 1, 720903, 720899, 1, 458760, 720899, 0, 524296, 720899, 1, 589832, 720899, 1, 655368, 720899, 1, 720904, 720899, 1, 458761, 720899, 0, 524297, 720899, 1, 589833, 720899, 1, 655369, 720899, 1, 720905, 720899, 1, 458762, 720899, 0, 524298, 720899, 1, 589834, 720899, 1, 655370, 720899, 1, 720906, 720899, 1, 458763, 720899, 0, 524299, 720899, 1, 589835, 720899, 1, 655371, 720899, 1, 720907, 720899, 1, 458764, 720899, 0, 524300, 720899, 1, 589836, 720899, 1, 655372, 720899, 1, 720908, 720899, 1, 458765, 720899, 0, 524301, 720899, 1, 589837, 720899, 1, 655373, 720899, 1, 720909, 720899, 1, 458766, 720899, 0, 524302, 720899, 1, 589838, 720899, 1, 655374, 720899, 1, 720910, 720899, 1, 458767, 720899, 0, 524303, 720899, 1, 589839, 720899, 1, 655375, 720899, 1, 720911, 720899, 1, 458768, 720899, 0, 524304, 720899, 1, 589840, 720899, 1, 655376, 720899, 1, 720912, 720899, 1, 458769, 720899, 0, 524305, 720899, 1, 589841, 720899, 1, 655377, 720899, 1, 720913, 720899, 1, 786432, 720899, 1, 786433, 720899, 1, 786434, 720899, 1, 786435, 720899, 1, 786436, 720899, 1, 786437, 720899, 1, 786438, 720899, 1, 786439, 720899, 1, 786440, 720899, 1, 786441, 720899, 1, 786442, 720899, 1, 786443, 720899, 1, 786444, 720899, 1, 786445, 720899, 1, 786446, 720899, 1, 786447, 720899, 1, 786448, 720899, 1, 786449, 720899, 1, 458770, 720899, 0, 458771, 720899, 0, 458772, 720899, 0, 458773, 720899, 0, 458774, 720899, 0, 458775, 720899, 0, 458776, 720899, 0, 458777, 720899, 0, 458778, 720899, 0, 458779, 720899, 0, 458780, 720899, 0, 458781, 720899, 0, 458782, 720899, 0, 458783, 720899, 0, 458784, 720899, 0, 524306, 720899, 1, 589842, 720899, 1, 655378, 720899, 1, 720914, 720899, 1, 786450, 720899, 1, 524307, 720899, 1, 589843, 720899, 1, 655379, 720899, 1, 720915, 720899, 1, 786451, 720899, 1, 524308, 720899, 1, 589844, 720899, 1, 655380, 720899, 1, 720916, 720899, 1, 786452, 720899, 1, 524309, 720899, 1, 589845, 720899, 1, 655381, 720899, 1, 720917, 720899, 1, 786453, 720899, 1, 524310, 720899, 1, 589846, 720899, 1, 655382, 720899, 1, 720918, 720899, 1, 786454, 720899, 1, 524311, 720899, 1, 589847, 720899, 1, 655383, 720899, 1, 720919, 720899, 1, 786455, 720899, 1, 524312, 720899, 1, 589848, 720899, 1, 655384, 720899, 1, 720920, 720899, 1, 786456, 720899, 1, 524313, 720899, 1, 589849, 720899, 1, 655385, 720899, 1, 720921, 720899, 1, 786457, 720899, 1, 524314, 720899, 1, 589850, 720899, 1, 655386, 720899, 1, 720922, 720899, 1, 786458, 720899, 1, 524315, 720899, 1, 589851, 720899, 1, 655387, 720899, 1, 720923, 720899, 1, 786459, 720899, 1, 524316, 720899, 1, 589852, 720899, 1, 655388, 720899, 1, 720924, 720899, 1, 786460, 720899, 1, 524317, 720899, 1, 589853, 720899, 1, 655389, 720899, 1, 720925, 720899, 1, 786461, 720899, 1, 524318, 720899, 1, 589854, 720899, 1, 655390, 720899, 1, 720926, 720899, 1, 786462, 720899, 1, 524319, 720899, 1, 589855, 720899, 1, 655391, 720899, 1, 720927, 720899, 1, 786463, 720899, 1, 524320, 720899, 1, 589856, 720899, 1, 655392, 720899, 1, 720928, 720899, 1, 786464, 720899, 1, -65506, 720899, 0, -65505, 720899, 0, -65504, 720899, 0, -65503, 720899, 0, -65502, 720899, 0, -65501, 720899, 0, -65500, 720899, 0, -65499, 720899, 0, -65498, 720899, 0, -65497, 720899, 0, -65496, 720899, 0, -65495, 720899, 0, -65494, 720899, 0, -65492, 720899, 0, -65493, 720899, 0, -65491, 720899, 0, -65490, 720899, 0, -65489, 720899, 0, -65488, 720899, 0, -65486, 720899, 0, -65487, 720899, 0, -65485, 720899, 0, -65484, 720899, 0, -65483, 720899, 0, -458696, 720899, 0, -458695, 720899, 0, -458694, 720899, 0, -458693, 720899, 0, -458692, 720899, 0, -458691, 720899, 0, -458690, 720899, 0, -458689, 720899, 0, -458688, 720899, 0, -458687, 720899, 0, -458686, 720899, 0, -458685, 720899, 0, -458684, 720899, 0, -458683, 720899, 0, -458682, 720899, 0, -458681, 720899, 0, -458680, 720899, 0, -458679, 720899, 0, -458678, 720899, 0, -458677, 720899, 0, -458676, 720899, 0, -458675, 720899, 0, -786350, 720899, 0, -786349, 720899, 0, -786348, 720899, 0, -786347, 720899, 0, -786346, 720899, 0, -786345, 720899, 0, -786344, 720899, 0, -786343, 720899, 0, -786342, 720899, 0, -786341, 720899, 0, -786340, 720899, 0, -786339, 720899, 0, -786338, 720899, 0, -786337, 720899, 0, -786336, 720899, 0, -786335, 720899, 0, -786334, 720899, 0, -786333, 720899, 0, -786332, 720899, 0, -786331, 720899, 0, -786330, 720899, 0, -786329, 720899, 0)
+
+[node name="Camera" parent="." node_paths=PackedStringArray("position_node") instance=ExtResource("6_s4f8w")]
+position = Vector2(4853, -731)
+position_node = NodePath("../AlertPosition")
 
 [node name="Door" parent="." instance=ExtResource("3_20is3")]
-position = Vector2(1119, 465)
+position = Vector2(6669, -797)
+
+[node name="TextTrigger2" parent="." instance=ExtResource("2_lviq3")]
+position = Vector2(167, 407)
+text_to_show = "Hey dood, just walk right past me with the A and D keys"
+one_time = false
+
+[node name="NPC2" parent="." instance=ExtResource("3_yb1ne")]
+position = Vector2(284, 432)
+scale = Vector2(3, 3)
+collision_layer = 0
+collision_mask = 0
+
+[node name="EyeBot" parent="." instance=ExtResource("6_tvgrc")]
+position = Vector2(3268, -561)
+
+[node name="EyeBot2" parent="." instance=ExtResource("6_tvgrc")]
+position = Vector2(3270, -672)
+
+[node name="EyeBot3" parent="." instance=ExtResource("6_tvgrc")]
+position = Vector2(3293, -104)
+
+[node name="EyeBot4" parent="." instance=ExtResource("6_tvgrc")]
+position = Vector2(3276, -453)
+
+[node name="EyeBot5" parent="." instance=ExtResource("6_tvgrc")]
+position = Vector2(3280, -216)
+
+[node name="EyeBot6" parent="." instance=ExtResource("6_tvgrc")]
+position = Vector2(3282, -328)
+
+[node name="AlertMusicPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(3686, -706)
+stream = ExtResource("9_dlc4p")
+
+[node name="AlertPosition" type="Node2D" parent="."]
+position = Vector2(4627, -675)
