@@ -114,4 +114,6 @@ offset_left = 3.0
 offset_top = 3.0
 offset_right = 233.0
 offset_bottom = 63.0
+theme_override_font_sizes/font_size = 13
 text = "Hello world blah blah "
+autowrap_mode = 2
