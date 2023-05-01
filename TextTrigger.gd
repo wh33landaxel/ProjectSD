@@ -15,7 +15,6 @@ func _ready():
 	
 
 func show_text(coll):
-	print("show the fuckin text")
 	if get_parent().is_in_group("door"):
 		#Yes this is horrible but game jam
 		if get_parent().door_locked:
