@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvldb01qnjm5s"]
+[gd_scene load_steps=7 format=3 uid="uid://bvldb01qnjm5s"]
 
 [ext_resource type="Texture2D" uid="uid://d18yupoexk8jl" path="res://Art/sheet.png" id="1_oq0ui"]
 [ext_resource type="PackedScene" uid="uid://bmhm4k5s0jluf" path="res://Scenes/player.tscn" id="2_v3r1q"]
+[ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/Door.tscn" id="3_683do"]
+[ext_resource type="PackedScene" uid="uid://yv3yhy6osbet" path="res://Scenes/death_area.tscn" id="4_33u5f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l3v"]
 texture = ExtResource("1_oq0ui")
@@ -333,3 +335,8 @@ layer_0/tile_data = PackedInt32Array(458753, 720899, 0, 458754, 720899, 0, 45875
 [node name="Player" parent="." instance=ExtResource("2_v3r1q")]
 position = Vector2(45, 419)
 scale = Vector2(3, 3)
+
+[node name="Door" parent="." instance=ExtResource("3_683do")]
+position = Vector2(6568, -36)
+
+[node name="DeathArea" parent="." instance=ExtResource("4_33u5f")]

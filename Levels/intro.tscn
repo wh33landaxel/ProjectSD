@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://x38nwbspr6hk"]
+[gd_scene load_steps=13 format=3 uid="uid://x38nwbspr6hk"]
 
 [ext_resource type="PackedScene" uid="uid://bmhm4k5s0jluf" path="res://Scenes/player.tscn" id="1_c3xtn"]
 [ext_resource type="Script" path="res://Levels/intro.gd" id="1_mmgj4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjib6uahpeq37" path="res://Scenes/camera.tscn" id="6_s4f8w"]
 [ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="6_tvgrc"]
 [ext_resource type="AudioStream" uid="uid://bxu5jk4v3yliq" path="res://Sounds/Blackmoor Tides Loop.wav" id="9_dlc4p"]
+[ext_resource type="PackedScene" uid="uid://yv3yhy6osbet" path="res://Scenes/death_area.tscn" id="10_3pmpn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l3v"]
 texture = ExtResource("1_obwt7")
@@ -361,13 +362,15 @@ position = Vector2(1868, 431)
 scale = Vector2(3, 3)
 
 [node name="TextTrigger5" parent="." instance=ExtResource("2_lviq3")]
-position = Vector2(2123, -127)
+position = Vector2(2013, -218)
+scale = Vector2(3, 3)
 text_to_show = "We got some BADDDD robots ahead, hit the slash button to get them outta the way!"
 mood_to_show = 2
 one_time = false
 
 [node name="TextTrigger6" parent="." instance=ExtResource("2_lviq3")]
-position = Vector2(2351, -128)
+position = Vector2(2434, -172)
+scale = Vector2(2, 2)
 text_to_show = "We got some BADDDD robots ahead, hit the slash button to get them outta the way!"
 mood_to_show = 2
 one_time = false
@@ -377,13 +380,15 @@ position = Vector2(2238, -103)
 scale = Vector2(3, 3)
 
 [node name="TextTrigger9" parent="." instance=ExtResource("2_lviq3")]
-position = Vector2(3911, -521)
+position = Vector2(3751, -615)
+scale = Vector2(3, 3)
 text_to_show = "Watch out for cameras, if they see you you need to disable their exclamation alerts"
 mood_to_show = 2
 one_time = false
 
 [node name="TextTrigger10" parent="." instance=ExtResource("2_lviq3")]
-position = Vector2(4139, -522)
+position = Vector2(4303, -616)
+scale = Vector2(3, 3)
 text_to_show = "Definitely not influenced by a certain gear of metal, what am i talking about?"
 one_time = false
 
@@ -468,3 +473,5 @@ stream = ExtResource("9_dlc4p")
 
 [node name="AlertPosition" type="Node2D" parent="."]
 position = Vector2(4627, -675)
+
+[node name="DeathArea" parent="." instance=ExtResource("10_3pmpn")]
