@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ProjectGS"
-run/main_scene="res://Levels/level_3.tscn"
+run/main_scene="res://Levels/intro.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 

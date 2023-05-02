@@ -15,3 +15,4 @@ func on_alert_change(alert_change):
 			$Alert.visible = true
 	else:
 		$AlertMusicPlayer.stop()
+ 	
