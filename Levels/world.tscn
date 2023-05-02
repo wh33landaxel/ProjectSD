@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://Scenes/EnemyFollow2D.gd" id="13_ulx76"]
 [ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="14_jmagk"]
 [ext_resource type="PackedScene" uid="uid://3ukadnjxn6kn" path="res://Scenes/npc.tscn" id="15_220f3"]
-[ext_resource type="PackedScene" uid="uid://b5icm2x2aqmnl" path="res://Scenes/text_trigger.tscn" id="16_u2wrn"]
+[ext_resource type="PackedScene" path="res://Scenes/text_trigger.tscn" id="16_u2wrn"]
 [ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/Door.tscn" id="17_hi8at"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l3v"]
