@@ -21,5 +21,7 @@
 ### Learning Godot (and why Godot? I never heard of it)
 - Godot just seemed to have that perfect balance of a light-weight no nonsense feature set and felt pretty intuitive to me as I kept using it. The node system is very similar to OOP concepts used in mobile development. Basically you want to be able to create things that can be reused both with the UI and the scripts. The Godot engine is also open-source, and whatever you create is yours which is pretty cool. Check out the [Godot Engine docs](https://docs.godotengine.org/en/stable/about/introduction.html#) if you want to figure this stuff out for yourself. Youtube channels I looked at were [GDQuest](https://www.youtube.com/@Gdquest), [Miziziziz](https://www.youtube.com/@Miziziziz) and [Bitburdy](https://www.youtube.com/@bitbirdy)
 
+All art assets and music are from [Open Game Art](https://opengameart.org/)
+
 
 <img width="575" alt="Screenshot 2023-05-02 at 1 07 47 PM" src="https://user-images.githubusercontent.com/1808065/235735981-af6bdb99-2342-43e7-a69f-99257ecf3b19.png">
