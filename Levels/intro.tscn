@@ -353,7 +353,7 @@ one_time = false
 
 [node name="TextTrigger4" parent="." instance=ExtResource("2_lviq3")]
 position = Vector2(1981, 406)
-text_to_show = "OKAY OKAY I'm just kidding calm down, hit the dash button to dash up there!"
+text_to_show = "OKAY OKAY I'm just kidding calm down, hit the E key to dash up there!"
 mood_to_show = 2
 one_time = false
 
@@ -364,7 +364,7 @@ scale = Vector2(3, 3)
 [node name="TextTrigger5" parent="." instance=ExtResource("2_lviq3")]
 position = Vector2(2013, -218)
 scale = Vector2(3, 3)
-text_to_show = "We got some BADDDD robots ahead, hit the slash button to get them outta the way!"
+text_to_show = "We got some BADDDD robots ahead, hit the slash button (W) to get them outta the way!"
 mood_to_show = 2
 one_time = false
 
