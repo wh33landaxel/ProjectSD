@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bmhm4k5s0jluf"]
+[gd_scene load_steps=38 format=3 uid="uid://bmhm4k5s0jluf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_hkqh2"]
 [ext_resource type="Texture2D" uid="uid://brgcnplvtpqrk" path="res://Art/characters.png" id="2_0rfdr"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://jj2fujd7gxsf" path="res://Sounds/explodemini.wav" id="4_ful8b"]
 [ext_resource type="Texture2D" uid="uid://by7qv60k45qsl" path="res://Art/swoosh.png" id="5_41mr0"]
 [ext_resource type="PackedScene" uid="uid://jtpny2ydlj12" path="res://Scenes/dash.tscn" id="6_1n1fm"]
-[ext_resource type="Script" path="res://Scripts/dash.gd" id="6_xxni2"]
 [ext_resource type="Script" path="res://Scenes/foot_step_player.gd" id="7_p5xmo"]
 [ext_resource type="AudioStream" uid="uid://dq2vxd7w7e4lf" path="res://Sounds/foom_0.wav" id="8_52tpj"]
 [ext_resource type="AudioStream" uid="uid://wm81d52tji4j" path="res://Sounds/sword sound.wav" id="9_715h0"]
@@ -415,7 +414,6 @@ animation = &"idle"
 stream = ExtResource("4_ful8b")
 
 [node name="Dash" parent="." instance=ExtResource("6_1n1fm")]
-script = ExtResource("6_xxni2")
 
 [node name="SlashSprite" type="Sprite2D" parent="."]
 position = Vector2(16, -1.66667)

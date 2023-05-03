@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="14_jmagk"]
 [ext_resource type="PackedScene" uid="uid://3ukadnjxn6kn" path="res://Scenes/npc.tscn" id="15_220f3"]
 [ext_resource type="PackedScene" uid="uid://dq863vby1eenj" path="res://Scenes/text_trigger.tscn" id="16_u2wrn"]
-[ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/door.tscn" id="17_hi8at"]
+[ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/Door.tscn" id="17_hi8at"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l3v"]
 texture = ExtResource("5_lptmu")

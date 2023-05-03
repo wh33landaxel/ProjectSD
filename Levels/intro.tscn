@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Levels/intro.gd" id="1_mmgj4"]
 [ext_resource type="Texture2D" uid="uid://d18yupoexk8jl" path="res://Art/sheet.png" id="1_obwt7"]
 [ext_resource type="PackedScene" uid="uid://dq863vby1eenj" path="res://Scenes/text_trigger.tscn" id="2_lviq3"]
-[ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/door.tscn" id="3_20is3"]
+[ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/Door.tscn" id="3_20is3"]
 [ext_resource type="PackedScene" uid="uid://3ukadnjxn6kn" path="res://Scenes/npc.tscn" id="3_yb1ne"]
 [ext_resource type="PackedScene" uid="uid://bjib6uahpeq37" path="res://Scenes/camera.tscn" id="6_s4f8w"]
 [ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="6_tvgrc"]
