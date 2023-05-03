@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bmhm4k5s0jluf"]
+[gd_scene load_steps=38 format=3]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_hkqh2"]
 [ext_resource type="Texture2D" uid="uid://brgcnplvtpqrk" path="res://Art/characters.png" id="2_0rfdr"]
@@ -6,15 +6,15 @@
 [ext_resource type="AudioStream" uid="uid://jj2fujd7gxsf" path="res://Sounds/explodemini.wav" id="4_ful8b"]
 [ext_resource type="Texture2D" uid="uid://by7qv60k45qsl" path="res://Art/swoosh.png" id="5_41mr0"]
 [ext_resource type="PackedScene" uid="uid://jtpny2ydlj12" path="res://Scenes/dash.tscn" id="6_1n1fm"]
-[ext_resource type="Script" path="res://Scenes/foot_step_player.gd" id="7_p5xmo"]
+[ext_resource type="Script" path="res://Scenes/FootStepPlayer.gd" id="7_xejka"]
 [ext_resource type="AudioStream" uid="uid://dq2vxd7w7e4lf" path="res://Sounds/foom_0.wav" id="8_52tpj"]
 [ext_resource type="AudioStream" uid="uid://wm81d52tji4j" path="res://Sounds/sword sound.wav" id="9_715h0"]
-[ext_resource type="Script" path="res://Scenes/state_machine.gd" id="10_kkhaa"]
-[ext_resource type="Script" path="res://Scenes/idle.gd" id="11_ev685"]
-[ext_resource type="Script" path="res://Scenes/air.gd" id="12_v8akf"]
-[ext_resource type="Script" path="res://Scenes/dash_state.gd" id="13_k1a60"]
-[ext_resource type="Script" path="res://Scenes/walk.gd" id="14_mc0cx"]
-[ext_resource type="Script" path="res://Scenes/attack.gd" id="15_h6oyn"]
+[ext_resource type="Script" path="res://Scenes/StateMachine.gd" id="10_vgdo7"]
+[ext_resource type="Script" path="res://Scenes/Idle.gd" id="11_emid7"]
+[ext_resource type="Script" path="res://Scenes/Air.gd" id="12_ekytu"]
+[ext_resource type="Script" path="res://Scenes/Walk.gd" id="12_g4ckf"]
+[ext_resource type="Script" path="res://Scenes/DashState.gd" id="13_cwojb"]
+[ext_resource type="Script" path="res://Scenes/Attack.gd" id="15_jy6bf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5t80"]
 size = Vector2(15, 24)
@@ -413,8 +413,6 @@ animation = &"idle"
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ful8b")
 
-[node name="Dash" parent="." instance=ExtResource("6_1n1fm")]
-
 [node name="SlashSprite" type="Sprite2D" parent="."]
 position = Vector2(16, -1.66667)
 texture = ExtResource("5_41mr0")
@@ -451,8 +449,10 @@ libraries = {
 "": SubResource("AnimationLibrary_7k1ds")
 }
 
+[node name="Dash" parent="." instance=ExtResource("6_1n1fm")]
+
 [node name="FootStepPlayer" type="AudioStreamPlayer2D" parent="."]
-script = ExtResource("7_p5xmo")
+script = ExtResource("7_xejka")
 
 [node name="DashPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_52tpj")
@@ -461,27 +461,28 @@ stream = ExtResource("8_52tpj")
 stream = ExtResource("9_715h0")
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("10_kkhaa")
+script = ExtResource("10_vgdo7")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("11_ev685")
+script = ExtResource("11_emid7")
 
 [node name="Air" type="Node" parent="StateMachine"]
-script = ExtResource("12_v8akf")
+script = ExtResource("12_ekytu")
 
 [node name="DashState" type="Node" parent="StateMachine"]
-script = ExtResource("13_k1a60")
+script = ExtResource("13_cwojb")
 
 [node name="Walk" type="Node" parent="StateMachine"]
-script = ExtResource("14_mc0cx")
+script = ExtResource("12_g4ckf")
 
 [node name="Attack" type="Node" parent="StateMachine"]
-script = ExtResource("15_h6oyn")
+script = ExtResource("15_jy6bf")
 _animation_player = NodePath("../../AnimationPlayer")
 _slash_audio_player = NodePath("../../SlashPlayer")
+animation = "slash"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="dash_ended" from="Dash" to="StateMachine/DashState" method="_on_dash_ended"]
 [connection signal="body_entered" from="SlashSprite/WeaponCollision" to="." method="_on_weapon_collision_body_entered"]
 [connection signal="body_entered" from="DownSlashSprite/DownWeaponCollision" to="." method="_on_down_weapon_collision_body_entered"]
+[connection signal="dash_ended" from="Dash" to="StateMachine/DashState" method="_on_dash_ended"]

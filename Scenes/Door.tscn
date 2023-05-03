@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4hcievivgjno"]
 
-[ext_resource type="Script" path="res://Scenes/Door.gd" id="1"]
+[ext_resource type="Script" path="res://Scenes/door.gd" id="1_vdxr6"]
 [ext_resource type="Texture2D" uid="uid://tspfx07ycq4c" path="res://Art/door_openMid.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://c46sd1ei6lw8w" path="res://Art/door_openTop.png" id="3"]
-[ext_resource type="PackedScene" uid="uid://b5icm2x2aqmnl" path="res://Scenes/text_trigger.tscn" id="4_f1ee4"]
+[ext_resource type="PackedScene" uid="uid://dq863vby1eenj" path="res://Scenes/text_trigger.tscn" id="4_f1ee4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(50.6896, 105.014)
@@ -11,7 +11,7 @@ size = Vector2(50.6896, 105.014)
 [node name="Door" type="Area2D" groups=["door"]]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1")
+script = ExtResource("1_vdxr6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.262745, 0.262745, 0.262745, 1)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://lm70ffjhknag"]
 
-[ext_resource type="Script" path="res://Levels/TimeLabel.gd" id="1_g4asl"]
 [ext_resource type="Script" path="res://Levels/game_over.gd" id="1_itlyq"]
+[ext_resource type="Script" path="res://Levels/time_label.gd" id="2_q56qw"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_itlyq")
@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Your time was: "
-script = ExtResource("1_g4asl")
+script = ExtResource("2_q56qw")
 
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 1

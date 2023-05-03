@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsr6sor8f3vc2"]
 
-[ext_resource type="Script" path="res://Scripts/DashGhost.gd" id="1_hnb50"]
+[ext_resource type="Script" path="res://Scripts/dash_ghost.gd" id="1_2uqw7"]
 
 [node name="DashGhost" type="Sprite2D" groups=["dash_ghost"]]
-script = ExtResource("1_hnb50")
+script = ExtResource("1_2uqw7")

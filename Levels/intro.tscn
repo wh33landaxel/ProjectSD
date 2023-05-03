@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bmhm4k5s0jluf" path="res://Scenes/player.tscn" id="1_c3xtn"]
 [ext_resource type="Script" path="res://Levels/intro.gd" id="1_mmgj4"]
 [ext_resource type="Texture2D" uid="uid://d18yupoexk8jl" path="res://Art/sheet.png" id="1_obwt7"]
-[ext_resource type="PackedScene" path="res://Scenes/text_trigger.tscn" id="2_lviq3"]
-[ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/Door.tscn" id="3_20is3"]
+[ext_resource type="PackedScene" uid="uid://dq863vby1eenj" path="res://Scenes/text_trigger.tscn" id="2_lviq3"]
+[ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/door.tscn" id="3_20is3"]
 [ext_resource type="PackedScene" uid="uid://3ukadnjxn6kn" path="res://Scenes/npc.tscn" id="3_yb1ne"]
 [ext_resource type="PackedScene" uid="uid://bjib6uahpeq37" path="res://Scenes/camera.tscn" id="6_s4f8w"]
 [ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="6_tvgrc"]
@@ -371,9 +371,6 @@ one_time = false
 [node name="TextTrigger6" parent="." instance=ExtResource("2_lviq3")]
 position = Vector2(2434, -172)
 scale = Vector2(2, 2)
-text_to_show = "We got some BADDDD robots ahead, hit the slash button to get them outta the way!"
-mood_to_show = 2
-one_time = false
 
 [node name="NPC4" parent="." instance=ExtResource("3_yb1ne")]
 position = Vector2(2238, -103)
@@ -399,11 +396,10 @@ scale = Vector2(3, 3)
 [node name="TextTrigger11" parent="." instance=ExtResource("2_lviq3")]
 position = Vector2(5569, -850)
 text_to_show = "Good job dood"
-one_time = false
 
 [node name="TextTrigger12" parent="." instance=ExtResource("2_lviq3")]
 position = Vector2(5797, -851)
-text_to_show = "Proud of you, call me sometime"
+text_to_show = "Proud of you, call me sometim"
 one_time = false
 
 [node name="NPC7" parent="." instance=ExtResource("3_yb1ne")]

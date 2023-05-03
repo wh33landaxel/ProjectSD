@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bv82rv3m3t27c"]
 
-[ext_resource type="Script" path="res://Scripts/ScoreDisplay.gd" id="1_vc3so"]
+[ext_resource type="Script" path="res://Scripts/score_display.gd" id="1_rrbam"]
 
 [node name="ScoreDisplay" type="CanvasLayer"]
-script = ExtResource("1_vc3so")
+script = ExtResource("1_rrbam")
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 138.0

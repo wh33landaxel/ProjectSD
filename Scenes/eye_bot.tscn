@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/eye_bot.gd" id="1_bl27v"]
 [ext_resource type="Texture2D" uid="uid://cclmbgevlqg18" path="res://Art/sprite_5.png" id="1_p7ko6"]
 [ext_resource type="Texture2D" uid="uid://dicvqqhg6y20h" path="res://Art/explosion.png" id="3_6tecy"]
-[ext_resource type="Script" path="res://Scenes/ExplosionSprite2D.gd" id="4_mq7ov"]
+[ext_resource type="Script" path="res://Scenes/explosion_sprite_2d.gd" id="4_ujbkv"]
 [ext_resource type="AudioStream" uid="uid://jj2fujd7gxsf" path="res://Sounds/explodemini.wav" id="5_xaqii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euenl"]
@@ -114,7 +114,7 @@ libraries = {
 position = Vector2(-1.2, 0)
 texture = ExtResource("3_6tecy")
 hframes = 5
-script = ExtResource("4_mq7ov")
+script = ExtResource("4_ujbkv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_xaqii")

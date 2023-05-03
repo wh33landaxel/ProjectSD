@@ -18,7 +18,7 @@ var dash_duration: float = 0.2
 var speed: float = 300.0
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var dash: Dash = $Dash
+@onready var dash = $Dash
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var forward_slash_sprite: Sprite2D = $SlashSprite
 @onready var footstep_player: AudioStreamPlayer2D = $FootStepPlayer

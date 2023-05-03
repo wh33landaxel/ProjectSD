@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Levels/world.gd" id="1_pntxy"]
 [ext_resource type="PackedScene" uid="uid://bmhm4k5s0jluf" path="res://Scenes/player.tscn" id="2_twlib"]
 [ext_resource type="FontFile" uid="uid://cg0uvdl4ofqt8" path="res://Fonts/Xolonium-Regular.ttf" id="3_hl8uk"]
-[ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="4_n37b5"]
+[ext_resource type="Script" path="res://Scripts/score_label.gd" id="4_4b8nc"]
 [ext_resource type="Texture2D" uid="uid://d18yupoexk8jl" path="res://Art/sheet.png" id="5_lptmu"]
 [ext_resource type="Texture2D" uid="uid://dywet286ktniq" path="res://Art/Backgrounds/bg-clouds.png" id="6_os6hs"]
 [ext_resource type="PackedScene" uid="uid://yv3yhy6osbet" path="res://Scenes/death_area.tscn" id="6_ym836"]
@@ -16,8 +16,8 @@
 [ext_resource type="Script" path="res://Scenes/EnemyFollow2D.gd" id="13_ulx76"]
 [ext_resource type="PackedScene" uid="uid://c5bdnactx4pxs" path="res://Scenes/eye_bot.tscn" id="14_jmagk"]
 [ext_resource type="PackedScene" uid="uid://3ukadnjxn6kn" path="res://Scenes/npc.tscn" id="15_220f3"]
-[ext_resource type="PackedScene" path="res://Scenes/text_trigger.tscn" id="16_u2wrn"]
-[ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/Door.tscn" id="17_hi8at"]
+[ext_resource type="PackedScene" uid="uid://dq863vby1eenj" path="res://Scenes/text_trigger.tscn" id="16_u2wrn"]
+[ext_resource type="PackedScene" uid="uid://b4hcievivgjno" path="res://Scenes/door.tscn" id="17_hi8at"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8l3v"]
 texture = ExtResource("5_lptmu")
@@ -362,7 +362,7 @@ theme_override_fonts/font = ExtResource("3_hl8uk")
 theme_override_font_sizes/font_size = 60
 text = "Test Font
 "
-script = ExtResource("4_n37b5")
+script = ExtResource("4_4b8nc")
 
 [node name="GameOverHUD" type="CanvasLayer" parent="."]
 

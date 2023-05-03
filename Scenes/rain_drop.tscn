@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3]
+[gd_scene load_steps=61 format=3 uid="uid://dvdt365ayca83"]
 
 [ext_resource type="Texture2D" uid="uid://ccuokdp5yj3m2" path="res://Art/sparkling-fireball-wind.png" id="1_golgc"]
 [ext_resource type="Script" path="res://Scripts/rain_drop.gd" id="1_upfug"]
